@@ -1,6 +1,7 @@
 package expr;
 
-import java.math.BigInteger;
+import poly.Poly;
 
 public interface Factor {
+    public Poly toPoly();
 }

@@ -1,40 +1,46 @@
 package expr;
 
+import poly.Basic;
+import poly.Poly;
+
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Term {
+    public ArrayList<Factor> getFactors() {
+        return factors;
+    }
+
+    public int getSign() {
+        return sign;
+    }
+
     private final ArrayList<Factor> factors;
-    private int symbol;
+    private int sign;
 
     public Term() {
         this.factors = new ArrayList<>();
-        this.symbol = 1;        //默认为正
+        this.sign = 1;        //默认为正
     }
 
-    public void setSymbol(int symbol) {
-        this.symbol = symbol;
+    public void setSign(int sign) {
+        this.sign = sign;
     }
 
     public void addFactor(Factor factor) {
         this.factors.add(factor);
     }
 
-    public String toString() {      //TODO 待修改
-        Iterator<Factor> iter = factors.iterator();
-        StringBuilder sb = new StringBuilder();
-        sb.append(iter.next().toString());
-        if (iter.hasNext()) {
-            sb.append(" ");
-            sb.append(iter.next().toString());
-            sb.append(" *");
-            while (iter.hasNext()) {
-                sb.append(" ");
-                sb.append(iter.next().toString());
-                sb.append(" *");
-            }
+    public Poly toPoly() {
+        ArrayList<Basic> resArraylist = new ArrayList<Basic>();
+        resArraylist.add(new Basic(BigInteger.valueOf(1), 0, 0, 0));    //1
+        Poly res = new Poly(resArraylist);
+        for (Factor i : this.getFactors()) {
+            res = res.mulPoly(i.toPoly());
         }
-        return sb.toString();
+        if (this.getSign() == -1) {             // 处理正负号
+            res.negate();
+        }
+        return res;
     }
 }

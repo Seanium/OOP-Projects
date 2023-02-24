@@ -1,46 +1,56 @@
 package expr;
 
-import java.math.BigInteger;
+import poly.Poly;
+
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Expr implements Factor {
     private final ArrayList<Term> terms;
-    private int symbol;   //正负号
-    private BigInteger expo;    //指数
+
+    public ArrayList<Term> getTerms() {
+        return terms;
+    }
+
+    private int sign;   //正负号
+
+    public int getSign() {
+        return sign;
+    }
+
+    private int expo;    //指数
+
+    public int getExpo() {
+        return expo;
+    }
 
     public Expr() {
         this.terms = new ArrayList<>();
-        this.symbol = 1;    //默认为正
-        this.expo = new BigInteger("1");      //默认指数为1
+        this.sign = 1;    //默认为正
+        this.expo = 1;      //默认指数为1
     }
 
-    public void setExpo(BigInteger expo) {
+    public void setExpo(int expo) {
         this.expo = expo;
     }
 
-    public void setSymbol(int symbol) {
-        this.symbol = symbol;
+    public void setSign(int sign) {
+        this.sign = sign;
     }
 
     public void addTerm(Term term) {
         this.terms.add(term);
     }
 
-    public String toString() {      //TODO 待修改
-        Iterator<Term> iter = terms.iterator();
-        StringBuilder sb = new StringBuilder();
-        sb.append(iter.next().toString());
-        if (iter.hasNext()) {
-            sb.append(" ");
-            sb.append(iter.next().toString());
-            sb.append(" +");
-            while (iter.hasNext()) {
-                sb.append(" ");
-                sb.append(iter.next().toString());
-                sb.append(" +");
-            }
+    public Poly toPoly() {
+        Poly res = new Poly(new ArrayList<>());
+        for (Term i : this.getTerms()) {
+            res = res.addPoly(i.toPoly());
         }
-        return sb.toString();
+        res = res.powPoly(this.getExpo());      // 指数运算 //TODO 已解决bug 少写了res= 导致res未改变
+        if (this.getSign() == -1) {             // 处理正负号
+            res.negate();
+        }
+        return res;
     }
 }
+

@@ -17,15 +17,15 @@ public class Parser {
     public Expr parseExpr() {
         Expr expr = new Expr();
         if (lexer.peek().equals("+")) {
-            expr.setSymbol(1);
+            expr.setSign(1);
             lexer.next();
         } else if (lexer.peek().equals("-")) {
-            expr.setSymbol(-1);
+            expr.setSign(-1);
             lexer.next();
         }
         expr.addTerm(parseTerm());
         while (lexer.peek().equals("+") || lexer.peek().equals("-")) {
-            //lexer.next();   //TODO BUG：此处不能有next，因为项的符号在parseTerm处理
+            //lexer.next();   //TODO 已解决BUG：此处不能有next，因为项的符号在parseTerm处理
             expr.addTerm(parseTerm());
 
         }
@@ -35,10 +35,10 @@ public class Parser {
     public Term parseTerm() {
         Term term = new Term();
         if (lexer.peek().equals("+")) {     //解析可能的正负号
-            term.setSymbol(1);
+            term.setSign(1);
             lexer.next();
         } else if (lexer.peek().equals("-")) {
-            term.setSymbol(-1);
+            term.setSign(-1);
             lexer.next();
         }
         term.addFactor(parseFactor());
@@ -59,7 +59,7 @@ public class Parser {
                 if (lexer.peek().equals("+")) {
                     lexer.next();       //跳过指数可能的 +
                 }
-                expr.setExpo(new BigInteger(lexer.peek())); //解析指数
+                expr.setExpo(Integer.parseInt(lexer.peek())); //解析指数
                 lexer.next();           //跳过指数
             }
             return expr;
@@ -72,7 +72,7 @@ public class Parser {
                 if (lexer.peek().equals("+")) {
                     lexer.next();               //跳过指数可能的 +
                 }
-                power.setExpo(new BigInteger(lexer.peek()));    //解析指数
+                power.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
                 lexer.next();                   //跳过指数
             }
             return power;
