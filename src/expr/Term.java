@@ -23,8 +23,8 @@ public class Term {
         this.sign = 1;        //默认为正
     }
 
-    public void setSign(int sign) {
-        this.sign = sign;
+    public void reverseSign() {
+        this.sign = -this.sign;
     }
 
     public void addFactor(Factor factor) {

@@ -25,9 +25,13 @@ public class Parser {
         }
         expr.addTerm(parseTerm());
         while (lexer.peek().equals("+") || lexer.peek().equals("-")) {
-            //lexer.next();   //TODO 已解决BUG：此处不能有next，因为项的符号在parseTerm处理
-            expr.addTerm(parseTerm());
-
+            boolean minus = lexer.peek().equals("-");
+            lexer.next();   //TODO 此处解析完了表达式与项之间的加减号 必须保留next 用于跳过加减号
+            Term term = parseTerm();
+            if (minus) {
+                term.reverseSign();             //TODO 把加减号传递给项 待验证正确性
+            }
+            expr.addTerm(term);
         }
         return expr;
     }
@@ -35,10 +39,10 @@ public class Parser {
     public Term parseTerm() {
         Term term = new Term();
         if (lexer.peek().equals("+")) {     //解析可能的正负号
-            term.setSign(1);
+
             lexer.next();
         } else if (lexer.peek().equals("-")) {
-            term.setSign(-1);
+            term.reverseSign();
             lexer.next();
         }
         term.addFactor(parseFactor());
