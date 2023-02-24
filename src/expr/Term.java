@@ -32,7 +32,7 @@ public class Term {
     }
 
     public Poly toPoly() {
-        ArrayList<Basic> resArraylist = new ArrayList<Basic>();
+        ArrayList<Basic> resArraylist = new ArrayList<>();
         resArraylist.add(new Basic(BigInteger.valueOf(1), 0, 0, 0));    //1
         Poly res = new Poly(resArraylist);
         for (Factor i : this.getFactors()) {
