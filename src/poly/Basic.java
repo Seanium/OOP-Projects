@@ -8,7 +8,7 @@ public class Basic {
     private int yexpo;
     private int zexpo;
 
-    public Basic(BigInteger coef, int xexpo, int yexpo, int zexpo) { // TODO 设计构造函数
+    public Basic(BigInteger coef, int xexpo, int yexpo, int zexpo) {
         this.coef = coef;
         this.xexpo = xexpo;
         this.yexpo = yexpo;

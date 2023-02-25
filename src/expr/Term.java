@@ -23,8 +23,9 @@ public class Term {
         this.sign = 1;        //默认为正
     }
 
-    public void reverseSign() {
+    public Term reverseSign() {
         this.sign = -this.sign;
+        return this;
     }
 
     public void addFactor(Factor factor) {

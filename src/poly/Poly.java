@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Poly {
-    private ArrayList<Basic> basicArrayList;
+    private ArrayList<Basic> basicArrayList;    //标准项=基本项数组
 
     public ArrayList<Basic> getBasicArrayList() {
         return basicArrayList;
@@ -19,8 +19,7 @@ public class Poly {
         ArrayList<Basic> resArrayList = new ArrayList<>();  //TODO 相加时进行同类项合并
         resArrayList.addAll(this.getBasicArrayList());
         resArrayList.addAll(that.getBasicArrayList());
-        Poly res = new Poly(resArrayList);
-        return res;
+        return new Poly(resArrayList);
     }
 
     public Poly mulPoly(Poly that) {
@@ -35,16 +34,14 @@ public class Poly {
                 resArrayList.add(basic);
             }
         }
-        Poly res = new Poly(resArrayList);
-        return res;
+        return new Poly(resArrayList);
     }
 
     public Poly powPoly(int expo) {
         if (expo == 0) {
-            ArrayList<Basic> resArraylist = new ArrayList<Basic>();
+            ArrayList<Basic> resArraylist = new ArrayList<>();
             resArraylist.add(new Basic(BigInteger.ONE, 0, 0, 0));    //指数为0，返回1
-            Poly res = new Poly(resArraylist);
-            return res;
+            return new Poly(resArraylist);
         }
         Poly res = this;
         for (int i = 1; i < expo; i++) {    //TODO 检查幂次运算是否正确
@@ -53,7 +50,7 @@ public class Poly {
         return res;
     }
 
-    public void negate() {  //TODO 检查正负号取反运算是否正确
+    public void negate() {  // 正负翻转
         for (Basic i : this.getBasicArrayList()) {
             i.setCoef(i.getCoef().multiply(BigInteger.valueOf(-1)));
         }

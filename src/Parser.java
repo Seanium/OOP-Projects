@@ -16,22 +16,24 @@ public class Parser {
     // 表达式 → 空白项 [加减 空白项] 项 空白项 | 表达式 加减 空白项 项 空白项
     public Expr parseExpr() {
         Expr expr = new Expr();
-        if (lexer.peek().equals("+")) {
-            expr.setSign(1);
-            lexer.next();
-        } else if (lexer.peek().equals("-")) {
-            expr.setSign(-1);
-            lexer.next();
+        if (lexer.peek().equals("+")) {         //有正号项
+            lexer.next();   //跳过正号
+            expr.addTerm(parseTerm());
+        } else if (lexer.peek().equals("-")) {  //有负号项
+            lexer.next();   //跳过负号
+            expr.addTerm(parseTerm().reverseSign());    //正负翻转
+        } else {
+            expr.addTerm(parseTerm());          //无号项
         }
-        expr.addTerm(parseTerm());
+
         while (lexer.peek().equals("+") || lexer.peek().equals("-")) {
-            boolean minus = lexer.peek().equals("-");
-            lexer.next();   //TODO 此处解析完了表达式与项之间的加减号 必须保留next 用于跳过加减号
-            Term term = parseTerm();
-            if (minus) {
-                term.reverseSign();             //TODO 把加减号传递给项 待验证正确性
+            if (lexer.peek().equals("+")) {         //有正号项
+                lexer.next();   //跳过正号
+                expr.addTerm(parseTerm());
+            } else if (lexer.peek().equals("-")) {  //有负号项
+                lexer.next();   //跳过负号
+                expr.addTerm(parseTerm().reverseSign());    //正负翻转
             }
-            expr.addTerm(term);
         }
         return expr;
     }
@@ -39,10 +41,9 @@ public class Parser {
     public Term parseTerm() {
         Term term = new Term();
         if (lexer.peek().equals("+")) {     //解析可能的正负号
-
             lexer.next();
         } else if (lexer.peek().equals("-")) {
-            term.reverseSign();
+            term = term.reverseSign();
             lexer.next();
         }
         term.addFactor(parseFactor());
@@ -58,10 +59,10 @@ public class Parser {
             lexer.next();               //跳过 (
             Expr expr = parseExpr();    //解析表达式
             lexer.next();               //跳过 )
-            if (lexer.peek().equals("**")) {
+            if (lexer.peek().equals("**")) {    //解析可能的**
                 lexer.next();           //跳过 **
-                if (lexer.peek().equals("+")) {
-                    lexer.next();       //跳过指数可能的 +
+                if (lexer.peek().equals("+")) { //解析指数前可能的正号
+                    lexer.next();       //跳过指数前正号
                 }
                 expr.setExpo(Integer.parseInt(lexer.peek())); //解析指数
                 lexer.next();           //跳过指数
@@ -71,10 +72,10 @@ public class Parser {
                 || lexer.peek().equals("z")) {  //幂函数因子
             Power power = new Power(lexer.peek());
             lexer.next();                       //跳过变量名
-            if (lexer.peek().equals("**")) {
+            if (lexer.peek().equals("**")) {    //解析可能的**
                 lexer.next();                   //跳过 **
-                if (lexer.peek().equals("+")) {
-                    lexer.next();               //跳过指数可能的 +
+                if (lexer.peek().equals("+")) { //解析指数前可能的正号
+                    lexer.next();               //跳过指数前正号
                 }
                 power.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
                 lexer.next();                   //跳过指数
@@ -85,10 +86,10 @@ public class Parser {
             if (lexer.peek().equals("-")) {         //负数
                 lexer.next();   //跳过 -
                 num = new BigInteger("-" + lexer.peek());
-            } else if (lexer.peek().equals("+")) {  //无正号正数
+            } else if (lexer.peek().equals("+")) {  //有正号正数
                 lexer.next();   //跳过可能的 +
                 num = new BigInteger(lexer.peek());
-            } else {                                //有正号正数
+            } else {                                //无正号正数
                 num = new BigInteger(lexer.peek());
             }
             lexer.next();       //跳过纯数字
