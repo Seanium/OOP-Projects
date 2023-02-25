@@ -50,12 +50,55 @@ public class Poly {
         return res;
     }
 
-    public void negate() {  // 正负翻转
+    public void negate() {  // 正负翻转 //TODO 是否改成返回Poly
         for (Basic i : this.getBasicArrayList()) {
             i.setCoef(i.getCoef().multiply(BigInteger.valueOf(-1)));
         }
     }
 
+    public Poly merge() { //合并同类项
+        ArrayList<Basic> resArraylist = new ArrayList<>();
+        Poly res = new Poly(resArraylist);
+        for (Basic i : this.getBasicArrayList()) {
+            boolean found = false;
+            if (i.getCoef().equals(BigInteger.ZERO)) {  //系数为0 统一改为0*x**0*y**0*z**0
+                i.setXexpo(0);
+                i.setYexpo(0);
+                i.setZexpo(0);
+            }
+            for (Basic j : res.getBasicArrayList()) {
+                if (i.similarTo(j)) {
+                    found = true;
+                    j.setCoef(j.getCoef().add(i.getCoef()));    //找到同类项，与同类项系数相加
+                    break;
+                }
+            }
+            if (!found) {
+                res.getBasicArrayList().add(i); //未找到同类项，添加该项
+            }
+        }
+        return res;
+    }
+
+    //    @Override
+    //    public String toString() {
+    //        Iterator<Basic> iter = basicArrayList.iterator();
+    //        StringBuilder sb = new StringBuilder();
+    //        sb.append(iter.next().toString());
+    //        while (iter.hasNext()) {
+    //            String s = iter.next().toString();
+    //            if (s.equals("0")) {
+    //                continue;                       //不输出+0
+    //            } else if (s.startsWith("-")) {
+    //                sb.append("-");
+    //                sb.append(s.substring(1));
+    //            } else {
+    //                sb.append("+");
+    //                sb.append(s);
+    //            }
+    //        }
+    //        return sb.toString();
+    //    }
     @Override
     public String toString() {
         Iterator<Basic> iter = basicArrayList.iterator();

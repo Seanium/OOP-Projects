@@ -36,6 +36,7 @@ public class Expr implements Factor {
             res = res.addPoly(i.toPoly());
         }
         res = res.powPoly(this.getExpo());      // 指数运算
+        res = res.merge();                      // 合并同类项
         return res;
     }
 }

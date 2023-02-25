@@ -1,4 +1,5 @@
 import expr.Expr;
+import poly.Poly;
 
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class Main {
         Lexer lexer = new Lexer(input.replaceAll("[\t ]", ""));
         Parser parser = new Parser(lexer);
         Expr expr = parser.parseExpr();
-        System.out.println(expr.toPoly().toString());
+        Poly poly = expr.toPoly();
+        System.out.println(poly.toString());
     }
 }
