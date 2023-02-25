@@ -80,34 +80,34 @@ public class Poly {
         return res;
     }
 
-    //    @Override
-    //    public String toString() {
-    //        Iterator<Basic> iter = basicArrayList.iterator();
-    //        StringBuilder sb = new StringBuilder();
-    //        sb.append(iter.next().toString());
-    //        while (iter.hasNext()) {
-    //            String s = iter.next().toString();
-    //            if (s.equals("0")) {
-    //                continue;                       //不输出+0
-    //            } else if (s.startsWith("-")) {
-    //                sb.append("-");
-    //                sb.append(s.substring(1));
-    //            } else {
-    //                sb.append("+");
-    //                sb.append(s);
-    //            }
-    //        }
-    //        return sb.toString();
-    //    }
     @Override
     public String toString() {
         Iterator<Basic> iter = basicArrayList.iterator();
         StringBuilder sb = new StringBuilder();
         sb.append(iter.next().toString());
         while (iter.hasNext()) {
-            sb.append("+");
-            sb.append(iter.next().toString());
+            String s = iter.next().toString();
+            if (s.equals("0")) {
+                continue;                       //不输出+0
+            } else if (s.startsWith("-")) {
+                sb.append("-");
+                sb.append(s.substring(1));
+            } else {
+                sb.append("+");
+                sb.append(s);
+            }
         }
         return sb.toString();
     }
+    //    @Override
+    //    public String toString() {
+    //        Iterator<Basic> iter = basicArrayList.iterator();
+    //        StringBuilder sb = new StringBuilder();
+    //        sb.append(iter.next().toString());
+    //        while (iter.hasNext()) {
+    //            sb.append("+");
+    //            sb.append(iter.next().toString());
+    //        }
+    //        return sb.toString();
+    //    }
 }

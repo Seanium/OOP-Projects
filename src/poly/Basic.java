@@ -68,31 +68,31 @@ public class Basic {
         }
     }
 
-    //    @Override
-    //    public String toString() {
-    //        if (this.getCoef().equals(BigInteger.ZERO)) {
-    //            return "0";
-    //        }
-    //        if (this.getXexpo() == 0 && this.getYexpo() == 0 && this.getZexpo() == 0) {
-    //            return String.valueOf(coef);
-    //        }
-    //        //最后优化系数为1或-1的情况
-    //        String res = coef + simplifyUnit("x", xexpo)
-    //                + simplifyUnit("y", yexpo)
-    //                + simplifyUnit("z", zexpo);
-    //        if (res.startsWith("1*")) {
-    //            res = res.substring(2);
-    //        } else if (res.startsWith("-1*")) {
-    //            res = "-" + res.substring(3);
-    //        }
-    //        return res;
-    //    }
     @Override
     public String toString() {
-        return coef +
-                "*x**" + xexpo +
-                "*y**" + yexpo +
-                "*z**" + zexpo;
+        if (this.getCoef().equals(BigInteger.ZERO)) {
+            return "0";
+        }
+        if (this.getXexpo() == 0 && this.getYexpo() == 0 && this.getZexpo() == 0) {
+            return String.valueOf(coef);
+        }
+        //最后优化系数为1或-1的情况
+        String res = coef + simplifyUnit("x", xexpo)
+                + simplifyUnit("y", yexpo)
+                + simplifyUnit("z", zexpo);
+        if (res.startsWith("1*")) {
+            res = res.substring(2);
+        } else if (res.startsWith("-1*")) {
+            res = "-" + res.substring(3);
+        }
+        return res;
     }
+    //    @Override
+    //    public String toString() {
+    //        return coef +
+    //                "*x**" + xexpo +
+    //                "*y**" + yexpo +
+    //                "*z**" + zexpo;
+    //    }
 
 }
