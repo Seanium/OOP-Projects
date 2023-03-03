@@ -68,7 +68,9 @@ public class Poly {
     public Poly merge() { //合并同类项
         ArrayList<Basic> resArraylist = new ArrayList<>();
         Poly res = new Poly(resArraylist);
+        //System.out.println(this.getBasicArrayList());
         for (Basic i : this.getBasicArrayList()) {
+            //System.out.println(i);
             boolean found = false;
             if (i.getCoef().equals(BigInteger.ZERO)) {  //系数为0 统一改为0*x**0*y**0*z**0
                 i.setXexpo(0);
@@ -76,6 +78,8 @@ public class Poly {
                 i.setZexpo(0);
             }
             for (Basic j : res.getBasicArrayList()) {
+                //System.out.println(res.getBasicArrayList().indexOf(i));
+                //System.out.println(res.getBasicArrayList().indexOf(j));
                 if (i.similarTo(j)) {
                     found = true;
                     j.setCoef(j.getCoef().add(i.getCoef()));    //找到同类项，与同类项系数相加
@@ -112,7 +116,24 @@ public class Poly {
         } else if (sb.toString().startsWith("0-")) {    // "0-" -> "-"
             sb.delete(0, 1);
         }
-        return sb.toString();
+        String s = sb.toString();
+        if (s.startsWith("-")) {
+            int stack = 0;
+            int plusPos = 0;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) == '(') {
+                    stack++;
+                } else if (s.charAt(i) == ')') {
+                    stack--;
+                } else if (stack == 0 && s.charAt(i) == '+') {
+                    plusPos = i;
+                    s = s.substring(plusPos + 1) + s.substring(0, plusPos);
+                    break;
+                }
+            }
+        }
+        s = s.replaceAll("(sin|cos)\\(\\((x|y|z)\\)\\)", "$1($2)");     //双括号优化
+        return s;
     }
     //    @Override
     //    public String toString() {
