@@ -69,11 +69,16 @@ public class Basic {
         //System.out.println("\nthis.cos = " + this.getCos());
         //System.out.println("that.cos = " + that.getCos());
         //System.out.println("is cos equals? " + hashmapEquals(this.getCos(), that.getCos()));
+        //        return this.getXexpo() == that.getXexpo()
+        //                && this.getYexpo() == that.getYexpo()
+        //                && this.getZexpo() == that.getZexpo()
+        //                && hashmapEquals(this.getSin(), that.getSin())
+        //                && hashmapEquals(this.getCos(), that.getCos());
         return this.getXexpo() == that.getXexpo()
                 && this.getYexpo() == that.getYexpo()
                 && this.getZexpo() == that.getZexpo()
-                && hashmapEquals(this.getSin(), that.getSin())
-                && hashmapEquals(this.getCos(), that.getCos());
+                && this.getSin().equals(that.getSin())
+                && this.getCos().equals(that.getCos());     //TODO equals可以完成hashmap相等比较吗
     }
 
     public String simplifyUnit(String s, int expo) {
