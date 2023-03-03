@@ -13,7 +13,7 @@ public class Main {
         int num = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < num; i++) {
             String s = scanner.nextLine();
-            Definer.defFunc(s);
+            Definer.defFunc(s.replaceAll("[\t ]", ""));
         }
         String input = scanner.nextLine();
         Lexer lexer = new Lexer(input.replaceAll("[\t ]", ""));
