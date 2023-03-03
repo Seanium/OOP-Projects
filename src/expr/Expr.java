@@ -3,6 +3,7 @@ package expr;
 import poly.Poly;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Expr implements Factor {
     private final ArrayList<Term> terms;
@@ -39,5 +40,18 @@ public class Expr implements Factor {
         res = res.merge();                      // 合并同类项
         return res;
     }
-}
 
+    @Override
+    public String toString() {
+        Iterator<Term> iter = getTerms().iterator();
+        StringBuilder sb = new StringBuilder();
+        sb.append("((");         //TODO 加括号是否正确
+        sb.append(iter.next().toString());
+        while (iter.hasNext()) {
+            sb.append("+");
+            sb.append(iter.next().toString());
+        }
+        sb.append(")").append("**").append(expo).append(")");
+        return sb.toString();
+    }
+}

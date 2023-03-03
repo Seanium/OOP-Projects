@@ -5,6 +5,8 @@ import poly.Poly;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class Term {
     public ArrayList<Factor> getFactors() {
@@ -34,7 +36,8 @@ public class Term {
 
     public Poly toPoly() {
         ArrayList<Basic> resArraylist = new ArrayList<>();
-        resArraylist.add(new Basic(BigInteger.valueOf(1), 0, 0, 0));    //1
+        resArraylist.add(new Basic(BigInteger.ONE, 0, 0, 0,
+                new HashMap<>(), new HashMap<>()));    //1
         Poly res = new Poly(resArraylist);
         for (Factor i : this.getFactors()) {
             res = res.mulPoly(i.toPoly());
@@ -43,5 +46,20 @@ public class Term {
             res.negate();
         }
         return res;
+    }
+
+    @Override
+    public String toString() {
+        Iterator<Factor> iter = getFactors().iterator();
+        StringBuilder sb = new StringBuilder();
+        if (sign == -1) {        //TODO 重要的负号
+            sb.append("-");
+        }
+        sb.append(iter.next().toString());
+        while (iter.hasNext()) {
+            sb.append("*");
+            sb.append(iter.next().toString());
+        }
+        return sb.toString();
     }
 }

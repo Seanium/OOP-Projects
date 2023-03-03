@@ -2,6 +2,7 @@ package poly;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class Poly {
@@ -26,11 +27,18 @@ public class Poly {
         ArrayList<Basic> resArrayList = new ArrayList<>();
         for (Basic i : this.getBasicArrayList()) {
             for (Basic j : that.getBasicArrayList()) {
+                HashMap<Poly, Integer> sinres = new HashMap<>(i.getSin());
+                j.getSin().forEach((key, value) ->
+                        sinres.merge(key, value, (v1, v2) -> v1 + v2));  // 合并sin的hashmap
+                HashMap<Poly, Integer> cosres = new HashMap<>(i.getCos());
+                j.getCos().forEach((key, value) ->
+                        cosres.merge(key, value, (v1, v2) -> v1 + v2));  // 合并cos的hashmap
                 Basic basic =
                         new Basic(i.getCoef().multiply(j.getCoef()),
                                 i.getXexpo() + j.getXexpo(),
                                 i.getYexpo() + j.getYexpo(),
-                                i.getZexpo() + j.getZexpo());   // 系数相乘，指数相加
+                                i.getZexpo() + j.getZexpo(),
+                                sinres, cosres);   // 系数相乘，指数相加
                 resArrayList.add(basic);
             }
         }
@@ -40,7 +48,8 @@ public class Poly {
     public Poly powPoly(int expo) {
         if (expo == 0) {
             ArrayList<Basic> resArraylist = new ArrayList<>();
-            resArraylist.add(new Basic(BigInteger.ONE, 0, 0, 0));    //指数为0，返回1
+            resArraylist.add(new Basic(BigInteger.ONE, 0, 0, 0,
+                    new HashMap<>(), new HashMap<>()));    //指数为0，返回1   //TODO 如何正确表示1 sin cos 放什么
             return new Poly(resArraylist);
         }
         Poly res = this;
@@ -80,34 +89,34 @@ public class Poly {
         return res;
     }
 
-    @Override
-    public String toString() {
-        Iterator<Basic> iter = basicArrayList.iterator();
-        StringBuilder sb = new StringBuilder();
-        sb.append(iter.next().toString());
-        while (iter.hasNext()) {
-            String s = iter.next().toString();
-            if (s.equals("0")) {
-                continue;                       //不输出+0
-            } else if (s.startsWith("-")) {
-                sb.append("-");
-                sb.append(s.substring(1));
-            } else {
-                sb.append("+");
-                sb.append(s);
-            }
-        }
-        return sb.toString();
-    }
     //    @Override
     //    public String toString() {
     //        Iterator<Basic> iter = basicArrayList.iterator();
     //        StringBuilder sb = new StringBuilder();
     //        sb.append(iter.next().toString());
     //        while (iter.hasNext()) {
-    //            sb.append("+");
-    //            sb.append(iter.next().toString());
+    //            String s = iter.next().toString();
+    //            if (s.equals("0")) {
+    //                continue;                       //不输出+0
+    //            } else if (s.startsWith("-")) {
+    //                sb.append("-");
+    //                sb.append(s.substring(1));
+    //            } else {
+    //                sb.append("+");
+    //                sb.append(s);
+    //            }
     //        }
     //        return sb.toString();
     //    }
+    @Override
+    public String toString() {
+        Iterator<Basic> iter = basicArrayList.iterator();
+        StringBuilder sb = new StringBuilder();
+        sb.append(iter.next().toString());
+        while (iter.hasNext()) {
+            sb.append("+");
+            sb.append(iter.next().toString());
+        }
+        return sb.toString();
+    }
 }

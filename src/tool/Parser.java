@@ -1,10 +1,15 @@
+package tool;
+
 import expr.Expr;
 import expr.Factor;
+import expr.Func;
 import expr.Number;
 import expr.Power;
+import expr.Sincos;
 import expr.Term;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 public class Parser {
     private final Lexer lexer;
@@ -13,7 +18,7 @@ public class Parser {
         this.lexer = lexer;
     }
 
-    // 表达式 → 空白项 [加减 空白项] 项 空白项 | 表达式 加减 空白项 项 空白项
+    // 表达式 →→  [加减] 项 | 表达式 加减 项
     public Expr parseExpr() {
         Expr expr = new Expr();
         if (lexer.peek().equals("+")) {         //有正号项
@@ -35,9 +40,11 @@ public class Parser {
                 expr.addTerm(parseTerm().reverseSign());    //正负翻转
             }
         }
+        //System.out.println("expr = " + expr);
         return expr;
     }
 
+    // 项 →→ [加减] 因子 | 项 '*' 因子
     public Term parseTerm() {
         Term term = new Term();
         if (lexer.peek().equals("+")) {     //解析可能的正负号
@@ -54,6 +61,7 @@ public class Parser {
         return term;
     }
 
+    // 因子 →→ 变量因子 | 常数因子 | 表达式因子
     public Factor parseFactor() {
         if (lexer.peek().equals("(")) { //表达式因子
             lexer.next();               //跳过 (
@@ -70,7 +78,7 @@ public class Parser {
             return expr;
         } else if (lexer.peek().equals("x") || lexer.peek().equals("y")
                 || lexer.peek().equals("z")) {  //幂函数因子
-            Power power = new Power(lexer.peek());
+            Power power = new Power(lexer.peek());  //解析 x y z
             lexer.next();                       //跳过变量名
             if (lexer.peek().equals("**")) {    //解析可能的**
                 lexer.next();                   //跳过 **
@@ -79,8 +87,39 @@ public class Parser {
                 }
                 power.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
                 lexer.next();                   //跳过指数
+                //TODO 考虑复用跳过指数的函数
             }
             return power;
+        } else if (lexer.peek().equals("sin") || lexer.peek().equals("cos")) {    //三角函数因子
+            String type = lexer.peek();         // 获得sin还是cos
+            lexer.next();       // 跳过 sin cos
+            lexer.next();       // 跳过 (
+            Factor factor = parseFactor();
+            Sincos sincos = new Sincos(type, factor);
+            lexer.next();       // 跳过 )
+            if (lexer.peek().equals("**")) {    //解析可能的**
+                lexer.next();                   //跳过 **
+                if (lexer.peek().equals("+")) { //解析指数前可能的正号
+                    lexer.next();               //跳过指数前正号
+                }
+                sincos.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
+                lexer.next();                   //跳过指数
+            }
+            return sincos;
+        } else if (lexer.peek().equals("f") || lexer.peek().equals("g")
+                || lexer.peek().equals("h")) {      //自定义函数因子
+            final String name = lexer.peek();
+            lexer.next();           // 跳过 f g h
+            lexer.next();           // 跳过 (
+            ArrayList<Factor> factors = new ArrayList<>();
+            factors.add(parseFactor());     //解析第一个因子
+            while (lexer.peek().equals(",")) {
+                lexer.next();               //跳过 ,
+                factors.add(parseFactor()); //解析余下的因子
+            }
+            lexer.next();   //跳过 )
+            return new Func(name, factors);
+
         } else {    //常数因子
             BigInteger num;
             if (lexer.peek().equals("-")) {         //负数
