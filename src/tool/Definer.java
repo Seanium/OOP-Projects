@@ -48,7 +48,7 @@ public class Definer {
         ArrayList<String> paras = getParaMap().get(name);  // 根据函数名得到形参列表
         HashMap<String, String> paMap = new HashMap<>();        // 定义从形参到实参的映射
         for (int i = 0; i < paras.size(); i++) {                // 建立从形参到实参的映射
-            paMap.put(paras.get(i), args.get(i).toString());    //TODO Factor.toString()是否需要重写
+            paMap.put(paras.get(i), args.get(i).toString());
         }
         //System.out.println("paMap.size() = " + paMap.size());
         //System.out.println("paMap.get(\"x\") = " + paMap.get("x"));

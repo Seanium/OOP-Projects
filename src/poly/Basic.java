@@ -4,7 +4,6 @@ import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
-@SuppressWarnings("checkstyle:CommentsIndentation")
 public class Basic {
     private BigInteger coef;    //系数
     private int xexpo;         //指数
@@ -85,41 +84,63 @@ public class Basic {
         }
     }
 
-    //    @Override
-    //    public String toString() {
-    //        if (this.getCoef().equals(BigInteger.ZERO)) {
-    //            return "0";
-    //        }
-    //        if (this.getXexpo() == 0 && this.getYexpo() == 0 && this.getZexpo() == 0) {
-    //            return String.valueOf(coef);
-    //        }
-    //        //最后优化系数为1或-1的情况
-    //        String res = coef + simplifyUnit("x", xexpo)
-    //                + simplifyUnit("y", yexpo)
-    //                + simplifyUnit("z", zexpo);
-    //        if (res.startsWith("1*")) {
-    //            res = res.substring(2);
-    //        } else if (res.startsWith("-1*")) {
-    //            res = "-" + res.substring(3);
-    //        }
-    //        return res;
-    //    }
     @Override
     public String toString() {
-        StringBuilder s;
-        s = new StringBuilder(coef +
-                "*x**" + xexpo +
-                "*y**" + yexpo +
-                "*z**" + zexpo);
+        if (this.getCoef().equals(BigInteger.ZERO)) {       // 系数为0
+            return "0";
+        }
+        String res = coef + simplifyUnit("x", xexpo)    // 系数非0
+                + simplifyUnit("y", yexpo)
+                + simplifyUnit("z", zexpo);
         for (Map.Entry<Poly, Integer> entry : this.getSin().entrySet()) {
-            s.append("*sin((").append(entry.getKey().toString())
-                    .append("))**").append(entry.getValue());   //TODO 括号的处理是否正确
+            if (entry.getValue().equals(0)) {
+                res = res + "";
+            }
+            if (entry.getValue().equals(1)) {
+                res = res + "*sin((" + entry.getKey().toString() +
+                        "))";
+            } else {
+                res = res + "*sin((" + entry.getKey().toString() +
+                        "))**" + entry.getValue();
+            }
         }
         for (Map.Entry<Poly, Integer> entry : this.getCos().entrySet()) {
-            s.append("*cos((").append(entry.getKey().toString()).
-                    append("))**").append(entry.getValue());
+            if (entry.getValue().equals(0)) {
+                res = res + "";
+            }
+            if (entry.getValue().equals(1)) {
+                res = res + "*cos((" + entry.getKey().toString() +
+                        "))";
+            } else {
+                res = res + "*cos((" + entry.getKey().toString() +
+                        "))**" + entry.getValue();
+            }
         }
-        return s.toString();
+        //最后处理开头的1*或-1*
+        if (res.startsWith("1*")) {
+            res = res.substring(2);
+        } else if (res.startsWith("-1*")) {
+            res = "-" + res.substring(3);
+        }
+        return res;
     }
+
+    //    @Override
+    //    public String toString() {
+    //        StringBuilder s;
+    //        s = new StringBuilder(coef +
+    //                "*x**" + xexpo +
+    //                "*y**" + yexpo +
+    //                "*z**" + zexpo);
+    //        for (Map.Entry<Poly, Integer> entry : this.getSin().entrySet()) {
+    //            s.append("*sin((").append(entry.getKey().toString())
+    //                    .append("))**").append(entry.getValue());   //TODO 括号的处理是否正确
+    //        }
+    //        for (Map.Entry<Poly, Integer> entry : this.getCos().entrySet()) {
+    //            s.append("*cos((").append(entry.getKey().toString()).
+    //                    append("))**").append(entry.getValue());
+    //        }
+    //        return s.toString();
+    //    }
 
 }
