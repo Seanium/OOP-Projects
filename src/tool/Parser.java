@@ -87,25 +87,10 @@ public class Parser {
                 }
                 power.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
                 lexer.next();                   //跳过指数
-                //TODO 考虑复用跳过指数的函数
             }
             return power;
         } else if (lexer.peek().equals("sin") || lexer.peek().equals("cos")) {    //三角函数因子
-            String type = lexer.peek();         // 获得sin还是cos
-            lexer.next();       // 跳过 sin cos
-            lexer.next();       // 跳过 (
-            Factor factor = parseFactor();
-            Sincos sincos = new Sincos(type, factor);
-            lexer.next();       // 跳过 )
-            if (lexer.peek().equals("**")) {    //解析可能的**
-                lexer.next();                   //跳过 **
-                if (lexer.peek().equals("+")) { //解析指数前可能的正号
-                    lexer.next();               //跳过指数前正号
-                }
-                sincos.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
-                lexer.next();                   //跳过指数
-            }
-            return sincos;
+            return parseSincos();
         } else if (lexer.peek().equals("f") || lexer.peek().equals("g")
                 || lexer.peek().equals("h")) {      //自定义函数因子
             final String name = lexer.peek();
@@ -119,7 +104,6 @@ public class Parser {
             }
             lexer.next();   //跳过 )
             return new Func(name, factors);
-
         } else {    //常数因子
             BigInteger num;
             if (lexer.peek().equals("-")) {         //负数
@@ -134,5 +118,23 @@ public class Parser {
             lexer.next();       //跳过纯数字
             return new Number(num);
         }
+    }
+
+    public Sincos parseSincos() {   // 从parseFactor独立出parseSincos，减少方法长度
+        String type = lexer.peek();         // 获得sin还是cos
+        lexer.next();       // 跳过 sin cos
+        lexer.next();       // 跳过 (
+        Factor factor = parseFactor();
+        Sincos sincos = new Sincos(type, factor);
+        lexer.next();       // 跳过 )
+        if (lexer.peek().equals("**")) {    //解析可能的**
+            lexer.next();                   //跳过 **
+            if (lexer.peek().equals("+")) { //解析指数前可能的正号
+                lexer.next();               //跳过指数前正号
+            }
+            sincos.setExpo(Integer.parseInt(lexer.peek()));    //解析指数
+            lexer.next();                   //跳过指数
+        }
+        return sincos;
     }
 }
