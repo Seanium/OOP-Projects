@@ -69,16 +69,16 @@ public class Basic {
         //System.out.println("\nthis.cos = " + this.getCos());
         //System.out.println("that.cos = " + that.getCos());
         //System.out.println("is cos equals? " + hashmapEquals(this.getCos(), that.getCos()));
-        //        return this.getXexpo() == that.getXexpo()
-        //                && this.getYexpo() == that.getYexpo()
-        //                && this.getZexpo() == that.getZexpo()
-        //                && hashmapEquals(this.getSin(), that.getSin())
-        //                && hashmapEquals(this.getCos(), that.getCos());
         return this.getXexpo() == that.getXexpo()
                 && this.getYexpo() == that.getYexpo()
                 && this.getZexpo() == that.getZexpo()
-                && this.getSin().equals(that.getSin())
-                && this.getCos().equals(that.getCos());     //TODO equals可以完成hashmap相等比较吗
+                && hashmapEquals(this.getSin(), that.getSin())
+                && hashmapEquals(this.getCos(), that.getCos());
+        //return this.getXexpo() == that.getXexpo()
+        //        && this.getYexpo() == that.getYexpo()
+        //        && this.getZexpo() == that.getZexpo()
+        //        && this.getSin().equals(that.getSin())
+        //        && this.getCos().equals(that.getCos());     //TODO equals可以完成hashmap相等比较吗
     }
 
     public String simplifyUnit(String s, int expo) {
@@ -102,12 +102,9 @@ public class Basic {
         int cnt = 0;
         for (Poly keya : a.keySet()) {
             for (Poly keyb : b.keySet()) {
-                if (keya.toString().equals(keyb.toString())) {
-                    if (!a.get(keya).equals(b.get(keyb))) {
-                        return false;
-                    } else {
-                        cnt++;
-                    }
+                if (keya.toString().equals(keyb.toString()) && a.get(keya).equals(b.get(keyb))) {
+                    cnt++;
+                    break;
                 }
             }
         }
