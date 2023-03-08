@@ -116,40 +116,38 @@ public class Basic {
         if (this.getCoef().equals(BigInteger.ZERO)) {       // 系数为0
             return "0";
         }
-        String res = coef + simplifyUnit("x", xexpo)    // 系数非0
+        StringBuilder res = new StringBuilder(coef + simplifyUnit("x", xexpo)    // 系数非0
                 + simplifyUnit("y", yexpo)
-                + simplifyUnit("z", zexpo);
+                + simplifyUnit("z", zexpo));
         for (Map.Entry<Poly, Integer> entry : this.getSin().entrySet()) {
             if (entry.getValue().equals(0)) {
-                res = res + "";
+                continue;
             }
             if (entry.getValue().equals(1)) {
-                res = res + "*sin((" + entry.getKey().toString() +
-                        "))";
+                res.append("*sin((").append(entry.getKey().toString()).append("))");
             } else {
-                res = res + "*sin((" + entry.getKey().toString() +
-                        "))**" + entry.getValue();
+                res.append("*sin((").append(entry.getKey().toString()).append("))**")
+                        .append(entry.getValue());
             }
         }
         for (Map.Entry<Poly, Integer> entry : this.getCos().entrySet()) {
             if (entry.getValue().equals(0)) {
-                res = res + "";
+                continue;
             }
             if (entry.getValue().equals(1)) {
-                res = res + "*cos((" + entry.getKey().toString() +
-                        "))";
+                res.append("*cos((").append(entry.getKey().toString()).append("))");
             } else {
-                res = res + "*cos((" + entry.getKey().toString() +
-                        "))**" + entry.getValue();
+                res.append("*cos((").append(entry.getKey().toString()).append("))**")
+                        .append(entry.getValue());
             }
         }
         //最后处理开头的1*或-1*
-        if (res.startsWith("1*")) {
-            res = res.substring(2);
-        } else if (res.startsWith("-1*")) {
-            res = "-" + res.substring(3);
+        if (res.toString().startsWith("1*")) {
+            res = new StringBuilder(res.substring(2));
+        } else if (res.toString().startsWith("-1*")) {
+            res = new StringBuilder("-" + res.substring(3));
         }
-        return res;
+        return res.toString();
     }
 
     //    @Override
