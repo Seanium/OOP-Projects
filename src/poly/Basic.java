@@ -72,8 +72,8 @@ public class Basic {
         return this.getXexpo() == that.getXexpo()
                 && this.getYexpo() == that.getYexpo()
                 && this.getZexpo() == that.getZexpo()
-                && hashmapEquals(this.getSin(), that.getSin())
-                && hashmapEquals(this.getCos(), that.getCos());
+                && this.getSin().equals(that.getSin())
+                && this.getCos().equals(that.getCos());
         //return this.getXexpo() == that.getXexpo()
         //        && this.getYexpo() == that.getYexpo()
         //        && this.getZexpo() == that.getZexpo()
