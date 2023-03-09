@@ -26,7 +26,14 @@ public class Basic {
 
     public Basic(BigInteger coef, int xexpo, int yexpo, int zexpo,
                  HashMap<Poly, Integer> sin, HashMap<Poly, Integer> cos) {
-        this.coef = coef;
+        boolean sinZero = false;
+        for (Poly poly : sin.keySet()) {
+            if (poly.toString().equals("0")) {
+                sinZero = true;
+                break;
+            }
+        }
+        this.coef = sinZero ? BigInteger.ZERO : coef;
         this.xexpo = xexpo;
         this.yexpo = yexpo;
         this.zexpo = zexpo;
