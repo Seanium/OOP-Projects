@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Objects;
 
 public class Poly {
     private ArrayList<Basic> basicArrayList;    //标准项=基本项数组
@@ -14,6 +15,23 @@ public class Poly {
 
     public Poly(ArrayList<Basic> basicArrayList) {
         this.basicArrayList = basicArrayList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Poly poly = (Poly) o;
+        return this.toString().equals(poly.toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.toString());
     }
 
     public Poly addPoly(Poly that) {
@@ -29,10 +47,10 @@ public class Poly {
             for (Basic j : that.getBasicArrayList()) {
                 HashMap<Poly, Integer> sinres = new HashMap<>(i.getSin());
                 j.getSin().forEach((key, value) ->
-                        sinres.merge(key, value, (v1, v2) -> v1 + v2));  // 合并sin的hashmap
+                        sinres.merge(key, value, Integer::sum));  // 合并sin的hashmap
                 HashMap<Poly, Integer> cosres = new HashMap<>(i.getCos());
                 j.getCos().forEach((key, value) ->
-                        cosres.merge(key, value, (v1, v2) -> v1 + v2));  // 合并cos的hashmap
+                        cosres.merge(key, value, Integer::sum));  // 合并cos的hashmap
                 Basic basic =
                         new Basic(i.getCoef().multiply(j.getCoef()),
                                 i.getXexpo() + j.getXexpo(),

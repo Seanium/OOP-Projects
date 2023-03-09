@@ -63,22 +63,11 @@ public class Basic {
     }
 
     public boolean similarTo(Basic that) {  //判断是否同类项
-        //System.out.println("this.sin = " + this.getSin());
-        //System.out.println("that.sin = " + that.getSin());
-        //System.out.println("is sin equals? " + hashmapEquals(this.getSin(), that.getSin()));
-        //System.out.println("\nthis.cos = " + this.getCos());
-        //System.out.println("that.cos = " + that.getCos());
-        //System.out.println("is cos equals? " + hashmapEquals(this.getCos(), that.getCos()));
         return this.getXexpo() == that.getXexpo()
                 && this.getYexpo() == that.getYexpo()
                 && this.getZexpo() == that.getZexpo()
                 && this.getSin().equals(that.getSin())
                 && this.getCos().equals(that.getCos());
-        //return this.getXexpo() == that.getXexpo()
-        //        && this.getYexpo() == that.getYexpo()
-        //        && this.getZexpo() == that.getZexpo()
-        //        && this.getSin().equals(that.getSin())
-        //        && this.getCos().equals(that.getCos());
     }
 
     public String simplifyUnit(String s, int expo) {
@@ -93,22 +82,6 @@ public class Basic {
         } else {
             return "*" + s + "**" + expo;
         }
-    }
-
-    public Boolean hashmapEquals(HashMap<Poly, Integer> a, HashMap<Poly, Integer> b) {
-        if (a.size() != b.size()) {
-            return false;
-        }
-        int cnt = 0;
-        for (Poly keya : a.keySet()) {
-            for (Poly keyb : b.keySet()) {
-                if (keya.toString().equals(keyb.toString()) && a.get(keya).equals(b.get(keyb))) {
-                    cnt++;
-                    break;
-                }
-            }
-        }
-        return cnt == a.size();
     }
 
     @Override
