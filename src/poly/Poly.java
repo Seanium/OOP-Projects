@@ -137,15 +137,13 @@ public class Poly {
         String s = sb.toString();
         if (s.startsWith("-")) {
             int stack = 0;
-            int plusPos = 0;
             for (int i = 0; i < s.length(); i++) {
                 if (s.charAt(i) == '(') {
                     stack++;
                 } else if (s.charAt(i) == ')') {
                     stack--;
                 } else if (stack == 0 && s.charAt(i) == '+') {
-                    plusPos = i;
-                    s = s.substring(plusPos + 1) + s.substring(0, plusPos);
+                    s = s.substring(i + 1) + s.substring(0, i);
                     break;
                 }
             }
