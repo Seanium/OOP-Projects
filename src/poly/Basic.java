@@ -38,7 +38,13 @@ public class Basic {
         this.yexpo = yexpo;
         this.zexpo = zexpo;
         this.sin = sin;
-        this.cos = cos;
+        HashMap<Poly, Integer> cosNoZero = new HashMap<>(cos);
+        for (Poly poly : cosNoZero.keySet()) {
+            if (poly.toString().equals("0")) {
+                cosNoZero.remove(poly);                 // cos(0) -> 1
+            }
+        }
+        this.cos = cosNoZero;
     }
 
     public HashMap<Poly, Integer> getSin() {
