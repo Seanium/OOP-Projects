@@ -148,8 +148,8 @@ public class Poly {
                 }
             }
         }
-        s = s.replaceAll("(sin|cos)\\(\\(([xyz])\\)\\)", "$1($2)");     //双括号优化
-        s = s.replaceAll("(sin|cos)\\(\\((-?\\d+)\\)\\)", "$1($2)");
+        s = s.replaceAll("(sin)\\(\\(([xyz]|-?\\d+)\\)\\)", "$1($2)");     //双括号优化
+        s = s.replaceAll("(cos)\\(\\(-?([xyz]|\\d+)\\)\\)", "$1($2)");
         return s;
     }
     //    @Override
