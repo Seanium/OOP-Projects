@@ -63,7 +63,7 @@ public class Expr implements Factor {
 
     public Expr deri(String var) {
         Number number = new Number(BigInteger.valueOf(this.expo));
-        final Expr expr1 = new Expr(this.terms, this.expo - 1);
+        final Expr expr1 = new Expr(this.terms, (this.expo == 0) ? 0 : this.expo - 1);
         final Expr expr2 = new Expr();
         expr2.setExpo(1);
         for (Term i : this.terms) { //遍历每一个term 求导得到每个terms 加入到expr2.terms

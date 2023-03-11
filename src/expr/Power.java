@@ -48,7 +48,7 @@ public class Power implements Factor {
     public Expr deri(String var) {
         if (var.equals(this.name)) {
             Number number = new Number(BigInteger.valueOf(this.expo));
-            Power power = new Power(this.name, this.expo - 1);
+            Power power = new Power(this.name, (this.expo == 0) ? 0 : this.expo - 1);
             Term term = new Term();
             term.addFactor(number);
             term.addFactor(power);

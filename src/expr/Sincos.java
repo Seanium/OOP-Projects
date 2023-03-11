@@ -54,11 +54,11 @@ public class Sincos implements Factor {
         Sincos sincos2;
         if (this.type.equals("sin")) {
             number = new Number(BigInteger.valueOf(this.expo));
-            sincos1 = new Sincos("sin", this.factor, this.expo - 1);
+            sincos1 = new Sincos("sin", this.factor, (this.expo == 0) ? 0 : this.expo - 1);
             sincos2 = new Sincos("cos", this.factor, 1);
         } else {
             number = new Number(BigInteger.valueOf(-this.expo));
-            sincos1 = new Sincos("cos", this.factor, this.expo - 1);
+            sincos1 = new Sincos("cos", this.factor, (this.expo == 0) ? 0 : this.expo - 1);
             sincos2 = new Sincos("sin", this.factor, 1);
         }
         Factor factor = this.factor.deri(var);
