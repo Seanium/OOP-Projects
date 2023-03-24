@@ -16,7 +16,6 @@ public class Table {
     }
 
     public synchronized boolean isEnd() {
-        notifyAll();
         return isEnd;
     }
 
