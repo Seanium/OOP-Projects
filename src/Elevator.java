@@ -36,15 +36,13 @@ public class Elevator extends Thread {
             boolean out = !passengers.get(curFloor).isEmpty();
             int maxInCnt = capacity - (passengerCnt - passengers.get(curFloor).size());
             ArrayList<Person> personArrayList = new ArrayList<>();
-            int i = 0;
-            while (i < maxInCnt) {
+            for (int i = 0; i < maxInCnt; i++) {
                 Person person;
                 if ((person = table.take(curFloor, direction)) == null) {
                     break;
                 } else {
                     personArrayList.add(person);
                 }
-                i++;
             }
             boolean in = personArrayList.size() > 0;
             if (in || out) {
