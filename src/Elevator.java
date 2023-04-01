@@ -121,7 +121,9 @@ public class Elevator extends Thread {
                 }
                 closeDoor();
             }
+            table.changeAcceptingCntBy(-1);
             TimableOutput.println("MAINTAIN_ABLE-" + id);
+            //TimableOutput.println(id + " elevator end");
             return 1;
         } else {
             if (table.hasWaiter() || this.hasPassenger()) {
@@ -133,7 +135,8 @@ public class Elevator extends Thread {
                     direction = -direction;
                 }
             } else {
-                if (table.isEnd()) {
+                if (table.isEnd() && table.noAccepting()) {
+                    //TimableOutput.println(id + " elevator end");
                     return 1;
                 } else {
                     table.waitForNew();

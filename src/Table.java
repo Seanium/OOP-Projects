@@ -10,6 +10,16 @@ public class Table {
     private final HashMap<Integer, Queue<Person>> waiters = new HashMap<>(); // 出发楼层：乘客队列
     private boolean end;
     private final HashMap<Integer, Boolean> maintainableMap = new HashMap<>();  // 记录维护请求
+    private int acceptingCnt;
+
+    public synchronized void changeAcceptingCntBy(int n) {
+        acceptingCnt += n;
+        notifyAll();
+    }
+
+    public synchronized boolean noAccepting() {
+        return acceptingCnt == 0;
+    }
 
     public synchronized void setMaintainable(int id, boolean maintainable) {
         maintainableMap.put(id, maintainable);
@@ -37,6 +47,7 @@ public class Table {
             Queue<Person> personQueue = new LinkedList<>();
             this.waiters.put(i, personQueue);
         }
+        this.acceptingCnt = 0;
     }
 
     public synchronized boolean hasWaiter() {   //是否有等待者(电梯外)

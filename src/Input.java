@@ -40,6 +40,7 @@ public class Input extends Thread {
                     // an MaintainRequest
                     // your code here
                     table.setMaintainable(((MaintainRequest) request).getElevatorId(), true);
+                    table.changeAcceptingCntBy(1);
                 }
             }
         }
