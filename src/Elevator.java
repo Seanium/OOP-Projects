@@ -115,7 +115,9 @@ public class Elevator extends Thread {
                 for (int i = bottomFloor; i <= topFloor; i++) {
                     for (Person person : passengers.get(i)) {
                         TimableOutput.println("OUT-" + person.getId() + "-" + curFloor + "-" + id);
-                        table.put(new Person(person.getId(), curFloor, i));
+                        if (curFloor != person.getToFloor()) {  //未到目的地，需要继续换乘的乘客
+                            table.put(new Person(person.getId(), curFloor, person.getToFloor()));
+                        }
                     }
                     passengers.get(i).clear();
                 }
