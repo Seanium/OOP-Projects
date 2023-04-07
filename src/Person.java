@@ -2,12 +2,7 @@ public class Person {
     private final int id;
     private final int fromFloor;
     private final int toFloor;
-    private final int direction;    // -1:down, 1:up
     private int eleDest;    // 电梯转运目的地
-
-    public int getDirection() {
-        return direction;
-    }
 
     public int getId() {
         return id;
@@ -25,7 +20,6 @@ public class Person {
         this.id = id;
         this.fromFloor = fromFloor;
         this.toFloor = toFloor;
-        this.direction = (toFloor > fromFloor) ? 1 : -1;
         this.eleDest = 0;
     }
 

@@ -12,9 +12,47 @@ public class Table {
     private final HashMap<Integer, Queue<Person>> waiters = new HashMap<>(); // 出发楼层：乘客队列
     private boolean end;
     private final HashMap<Integer, Boolean> maintainableMap = new HashMap<>();  // 记录维护请求
-    private int acceptingCnt;
+    private int movingCnt; //未到目的地的人数
     private final ArrayList<ArrayList<Boolean>> accessArrays = new ArrayList<>();
     private final Distance distance;
+    private final ArrayList<Integer> serveCnt = new ArrayList<>();   // <楼层, 服务中数量>
+    private final ArrayList<Integer> onlyInCnt = new ArrayList<>();    // <楼层, 只接人数量>
+
+    public synchronized boolean newOtherServe(int floor) {
+        if (serveCnt.get(floor) < 4) {
+            serveCnt.set(floor, serveCnt.get(floor) + 1);
+            //System.out.println(floor + " 层 服务：" + serveCnt.get(floor));
+            notifyAll();
+            return true;
+        }
+        return false;
+    }
+
+    public synchronized boolean newOnlyIn(int floor) {
+        if (serveCnt.get(floor) < 4 && onlyInCnt.get(floor) < 2) {
+            onlyInCnt.set(floor, onlyInCnt.get(floor) + 1);
+            serveCnt.set(floor, serveCnt.get(floor) + 1);
+            //System.out.println(floor + " 层 只接人：" + onlyInCnt.get(floor));
+            //System.out.println(floor + " 层 服务：" + serveCnt.get(floor));
+            notifyAll();
+            return true;
+        }
+        return false;
+    }
+
+    public synchronized void delOtherServe(int floor) {
+        serveCnt.set(floor, serveCnt.get(floor) - 1);
+        notifyAll();
+        //System.out.println(floor + " 层 服务：" + serveCnt.get(floor));
+    }
+
+    public synchronized void delOnlyIn(int floor) {
+        onlyInCnt.set(floor, onlyInCnt.get(floor) - 1);
+        serveCnt.set(floor, serveCnt.get(floor) - 1);
+        notifyAll();
+        //System.out.println(floor + " 层 只接人：" + onlyInCnt.get(floor));
+        //System.out.println(floor + " 层 服务：" + serveCnt.get(floor));
+    }
 
     public Table(int bottomFloor, int topFloor) {
         this.end = false;
@@ -24,17 +62,23 @@ public class Table {
             Queue<Person> personQueue = new LinkedList<>();
             this.waiters.put(i, personQueue);
         }
-        this.acceptingCnt = 0;
         this.distance = new Distance(11);
+        for (int i = 0; i <= topFloor; i++) {
+            serveCnt.add(i, 0);
+            onlyInCnt.add(i, 0);
+        }
+        this.movingCnt = 0;
     }
 
-    public synchronized void changeAcceptingCntBy(int n) {
-        acceptingCnt += n;
-        notifyAll();
+    public synchronized void changeMovingCntBy(int n) {
+        movingCnt += n;
+        if (movingCnt == 0) {
+            notifyAll();
+        }
     }
 
-    public synchronized boolean noAccepting() {
-        return acceptingCnt == 0;
+    public synchronized boolean noMoving() {
+        return movingCnt == 0;
     }
 
     public synchronized void setMaintainable(int id, boolean maintainable) {
@@ -111,6 +155,7 @@ public class Table {
 
     public synchronized void put(Person person) {
         this.waiters.get(person.getFromFloor()).offer(person);
+        //System.out.println("乘客 " + person.getId() + " 已放回 " + person.getFromFloor() + " 层");
         notifyAll();
     }
 
@@ -118,6 +163,7 @@ public class Table {
         Queue<Person> personQueue = waiters.get(curFloor);
         for (Person person : personQueue) {
             int eleDest = calEleDest(curFloor, person.getToFloor(), accessArray);
+            //System.out.println("乘客 " + person.getId() + " 的中转目的地：" + eleDest);
             if (eleDest != -1) {
                 personQueue.remove(person);
                 notifyAll();
@@ -148,7 +194,7 @@ public class Table {
         if (inArr.size() > 0) {
             notifyAll();
         }
-        System.out.println(inArr.size());
+        //System.out.println(inArr.size());
         return inArr;
     }
 

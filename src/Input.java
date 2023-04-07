@@ -29,6 +29,7 @@ public class Input extends Thread {
                     // a PersonRequest
                     // your code here
                     table.put((PersonRequest) request);
+                    table.changeMovingCntBy(1);
                 } else if (request instanceof ElevatorRequest) {
                     // an ElevatorRequest
                     // your code here
@@ -43,7 +44,6 @@ public class Input extends Thread {
                     // an MaintainRequest
                     // your code here
                     table.setMaintainable(((MaintainRequest) request).getElevatorId(), true);
-                    table.changeAcceptingCntBy(1);
                 }
             }
         }

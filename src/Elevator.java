@@ -40,23 +40,9 @@ public class Elevator extends Thread {
             //System.out.println("电梯 " + id + " 的轮询 start");
             //如果收到维护请求
             if (table.isMaintainable(id)) {
-                if (passengers.size() > 0) {
-                    openDoor();
-                    for (Person person : passengers) {
-                        TimableOutput.println("OUT-" + person.getId() + "-" + curFloor + "-" + id);
-                        if (curFloor != person.getToFloor()) {  //未到目的地，需要继续换乘的乘客
-                            table.put(new Person(person.getId(), curFloor, person.getToFloor()));
-                        }
-                    }
-                    //passengers.clear(); //此处可省略
-                    closeDoor();
+                if (maintain() == 1) {
+                    return;
                 }
-                table.changeAcceptingCntBy(-1);
-                TimableOutput.println("MAINTAIN_ABLE-" + id);
-                //TimableOutput.println(id + " elevator end");
-                table.removeAccessArray(accessArray);
-                table.updateDistance();
-                return;
             } else {  //如果没有维护请求
                 //如果本层可达
                 if (canAccess(curFloor)) {
@@ -89,63 +75,133 @@ public class Elevator extends Thread {
                     }
                     boolean in = !inArr.isEmpty();
                     if (out || in) {
-                        //开门
-                        openDoor();
-                        //下客
-                        if (out) {
-                            for (Person person : outArr) {
-                                TimableOutput.println("OUT-" + person.getId() +
-                                        "-" + curFloor + "-" + id);
-                                if (curFloor != person.getToFloor()) {  //未到目的地，需要继续换乘的乘客
-                                    table.put(new Person(person.getId(),
-                                            curFloor, person.getToFloor()));
-                                //System.out.println("乘客 " + person.getId()
-                                // + " 回到第 " + curFloor + " 层等待队列");
-                                }
-                            }
-                        }
-                        //上客
-                        if (in) {
-                            for (Person person : inArr) {
-                                TimableOutput.println("IN-" + person.getId() +
-                                        "-" + curFloor + "-" + id);
-                                passengers.offer(person);
-                            }
-                        }
-                        //关门
-                        closeDoor();
+                        exchange(in, out, inArr, outArr);
                     }
                 }
-                //如果有乘客
-                if (passengers.size() > 0) {
-                    direction = (passengers.element().getEleDest() > curFloor) ? 1 : -1;
-                    moveForward();
-                } else {  //如果没有乘客
-                    //如果有等待者在可达层
-                    if (table.hasWaiter(accessArray)) {
-                        //如果有等待者在前进方向可达层
-                        if (table.hasWaiterForward(direction, curFloor, accessArray)) {
-                            moveForward();
-                        } else if (table.hasWaiterBackward(direction, curFloor, accessArray)) {
-                            direction = -direction;
-                        } else {
-                            table.waitForNew();
-                        }
-                    } else {  //如果没有等待者在可达层
-                        //如果输入已结束并且接收数==0
-                        if (table.isEnd() && table.noAccepting()) {
-                            //TimableOutput.println(id + " elevator end");
-                            table.removeAccessArray(accessArray);
-                            table.updateDistance();
-                            return;
-                        } else {
-                            //System.out.println("电梯 " + id + " 的 wait");
-                            table.waitForNew();
-                        }
-                    }
+                if (decide() == 1) {
+                    return;
                 }
             }
         }
+    }
+
+    private int maintain() {
+        if (passengers.size() > 0) {
+            while (!table.newOtherServe(curFloor)) {
+                //System.out.println("电梯 " + id + " 不能服务，进入等待");
+                //System.out.println("电梯 " + id + " 的 wait 开始");
+                table.waitForNew();
+                //System.out.println("电梯 " + id + " 的 wait 结束");
+            }
+            openDoor();
+            for (Person person : passengers) {
+                TimableOutput.println("OUT-" + person.getId() + "-" + curFloor + "-" + id);
+                if (curFloor != person.getToFloor()) {  //未到目的地，需要继续换乘的乘客
+                    table.put(new Person(person.getId(), curFloor, person.getToFloor()));
+                } else { //已到目的地的乘客
+                    table.changeMovingCntBy(-1);
+                }
+            }
+            //passengers.clear(); //此处可省略
+            closeDoor();
+            table.delOtherServe(curFloor);
+        }
+        TimableOutput.println("MAINTAIN_ABLE-" + id);
+        //TimableOutput.println(id + " elevator end");
+        table.removeAccessArray(accessArray);
+        table.updateDistance();
+        return 1;
+    }
+
+    private void exchange(boolean in, boolean out,
+                         ArrayList<Person> inArr, ArrayList<Person> outArr) {
+        //控制同层服务数量
+        if (in && !out) {   //服务-只接人
+            //System.out.println("电梯 " + id + " 想要只接人");
+            while (!table.newOnlyIn(curFloor)) {
+                //System.out.println("电梯 " + id + " 不能只接人，进入等待");
+                //System.out.println("电梯 " + id + " 的 wait 开始");
+                table.waitForNew();
+                //System.out.println("电梯 " + id + " 的 wait 结束");
+            }
+            //System.out.println("电梯 " + id + " 开始服务（只接人）");
+        } else {    //服务-非只接人
+            //System.out.println("电梯 " + id + " 想要服务");
+            while (!table.newOtherServe(curFloor)) {
+                //System.out.println("电梯 " + id + " 不能服务，进入等待");
+                //System.out.println("电梯 " + id + " 的 wait 开始");
+                table.waitForNew();
+                //System.out.println("电梯 " + id + " 的 wait 结束");
+            }
+            //System.out.println("电梯 " + id + " 开始服务");
+        }
+        //开门
+        openDoor();
+        //下客
+        if (out) {
+            for (Person person : outArr) {
+                TimableOutput.println("OUT-" + person.getId() +
+                        "-" + curFloor + "-" + id);
+                if (curFloor != person.getToFloor()) {  //未到目的地，需要继续换乘的乘客
+                    table.put(new Person(person.getId(),
+                            curFloor, person.getToFloor()));
+                //System.out.println("乘客 " + person.getId()
+                // + " 回到第 " + curFloor + " 层等待队列");
+                } else { //已到目的地的乘客
+                    table.changeMovingCntBy(-1);
+                }
+            }
+        }
+        //上客
+        if (in) {
+            for (Person person : inArr) {
+                TimableOutput.println("IN-" + person.getId() +
+                        "-" + curFloor + "-" + id);
+                passengers.offer(person);
+            }
+        }
+        //关门
+        closeDoor();
+        if (in && !out) {   //服务-只接人
+            //System.out.println("电梯 " + id + " 结束服务（只接人）");
+            table.delOnlyIn(curFloor);
+        } else {   //服务-非只接人
+            //System.out.println("电梯 " + id + " 结束服务");
+            table.delOtherServe(curFloor);
+        }
+    }
+
+    private int decide() {
+        //如果有乘客
+        if (passengers.size() > 0) {
+            direction = (passengers.element().getEleDest() > curFloor) ? 1 : -1;
+            moveForward();
+        } else {  //如果没有乘客
+            //如果有等待者在可达层
+            if (table.hasWaiter(accessArray)) {
+                //如果有等待者在前进方向可达层
+                if (table.hasWaiterForward(direction, curFloor, accessArray)) {
+                    moveForward();
+                } else if (table.hasWaiterBackward(direction, curFloor, accessArray)) {
+                    direction = -direction;
+                } else {
+                    table.waitForNew();
+                }
+            } else {  //如果没有等待者在可达层
+                //如果输入已结束并且接收数==0
+                if (table.isEnd() && table.noMoving()) {
+                    //TimableOutput.println(id + " 电梯线程结束");
+                    table.removeAccessArray(accessArray);
+                    table.updateDistance();
+                    return 1;
+                } else {
+                    //System.out.println("电梯 " + id + " 的 wait 开始");
+                    table.waitForNew();
+                    //System.out.println("电梯 " + id + " 的 wait 结束");
+                }
+            }
+        }
+        return 0;
     }
 
     private void sleep(int millis) {
