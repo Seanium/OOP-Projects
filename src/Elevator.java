@@ -228,7 +228,7 @@ public class Elevator extends Thread {
         TimableOutput.println("ARRIVE-" + curFloor + "-" + id);
     }
 
-    Boolean canAccess(int floor) {
+    private Boolean canAccess(int floor) {
         return (access & (1 << (floor - 1))) != 0;
     }
 }

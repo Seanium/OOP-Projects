@@ -2,7 +2,6 @@ import com.oocourse.elevator3.PersonRequest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -172,30 +171,6 @@ public class Table {
             }
         }
         return null;
-    }
-
-    public synchronized ArrayList<Person> take(int curFloor,
-                                               ArrayList<Boolean> accessArray, int maxInCnt) {
-        ArrayList<Person> inArr = new ArrayList<>();
-        Queue<Person> personQueue = waiters.get(curFloor);
-        Iterator<Person> iterator = personQueue.iterator();
-        while (iterator.hasNext()) {
-            if (inArr.size() == maxInCnt) {
-                break;
-            }
-            Person person = iterator.next();
-            int eleDest = calEleDest(curFloor, person.getToFloor(), accessArray);
-            if (eleDest != -1) {
-                person.setEleDest(eleDest);
-                inArr.add(person);
-                iterator.remove();
-            }
-        }
-        if (inArr.size() > 0) {
-            notifyAll();
-        }
-        //System.out.println(inArr.size());
-        return inArr;
     }
 
     public synchronized int calEleDest(int curFloor, int toFloor, ArrayList<Boolean> accessArray) {
