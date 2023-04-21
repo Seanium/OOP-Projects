@@ -1,6 +1,5 @@
 package exceptions;
 
-import com.oocourse.spec1.exceptions.ExceptionCounter;
 import com.oocourse.spec1.exceptions.RelationNotFoundException;
 
 public class MyRelationNotFoundException extends RelationNotFoundException {

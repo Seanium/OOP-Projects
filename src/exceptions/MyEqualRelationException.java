@@ -1,7 +1,6 @@
 package exceptions;
 
 import com.oocourse.spec1.exceptions.EqualRelationException;
-import com.oocourse.spec1.exceptions.ExceptionCounter;
 
 public class MyEqualRelationException extends EqualRelationException {
     private final int smallId;

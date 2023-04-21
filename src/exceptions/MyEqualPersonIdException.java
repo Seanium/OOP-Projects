@@ -1,7 +1,6 @@
 package exceptions;
 
 import com.oocourse.spec1.exceptions.EqualPersonIdException;
-import com.oocourse.spec1.exceptions.ExceptionCounter;
 
 public class MyEqualPersonIdException extends EqualPersonIdException {
     private final int id;
