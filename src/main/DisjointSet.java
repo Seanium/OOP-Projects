@@ -17,9 +17,9 @@ public class DisjointSet {
             root = parent.get(root);
         }
         int temp = id;
-        while (temp != parent.get(temp)) {
-            temp = parent.get(temp);
+        while (temp != root) {
             parent.replace(temp, root);    //路径压缩
+            temp = parent.get(temp);
         }
         return root;
     }
@@ -32,7 +32,7 @@ public class DisjointSet {
         if (rank1 < rank2) {
             parent.put(root1, root2);
         } else if (rank1 > rank2) {
-            parent.put(root2, rank1);
+            parent.put(root2, root1);
         } else {
             parent.put(root2, root1);
             rank.put(root1, rank1 + 1);
