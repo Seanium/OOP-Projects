@@ -13,12 +13,12 @@ import exceptions.MyRelationNotFoundException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 
 public class MyNetwork implements Network {
     private final HashMap<Integer, Person> people = new HashMap<>();
     private final DisjointSet disjointSet = new DisjointSet();
     private int blockSum = 0;
+    private int tripleSum = 0;
 
     public MyNetwork() {
 
@@ -60,15 +60,24 @@ public class MyNetwork implements Network {
         if (person1.isLinked(person2)) {
             throw new MyEqualRelationException(id1, id2);
         }
-
+        //维护blockSum
+        if (disjointSet.find(id1) != disjointSet.find(id2)) {
+            blockSum--;
+        }
+        //加入边
         person1.getAcquaintance().put(id2, person2);
         person2.getAcquaintance().put(id1, person1);
         person1.getValue().put(id2, value);
         person2.getValue().put(id1, value);
         disjointSet.merge(id1, id2);
-        blockSum--;
-        person1.addDegree();
-        person2.addDegree();
+        //维护tripleSum
+        for (Integer id : people.keySet()) {
+            MyPerson person = (MyPerson) getPerson(id);
+            HashMap<Integer, Person> acquaintance = person.getAcquaintance();
+            if (acquaintance.containsKey(id1) && acquaintance.containsKey(id2)) {
+                tripleSum++;
+            }
+        }
     }
 
     @Override
@@ -106,44 +115,7 @@ public class MyNetwork implements Network {
 
     @Override
     public int queryTripleSum() {
-        //清除旧的有向图
-        for (Integer id : people.keySet()) {
-            MyPerson person = (MyPerson) people.get(id);
-            person.clearDirectedEdge();
-        }
-        //建立新的有向图
-        for (Integer id1 : people.keySet()) {
-            MyPerson person1 = (MyPerson) people.get(id1);
-            HashMap<Integer, Person> acquaintance = person1.getAcquaintance();
-            for (Integer id2 : acquaintance.keySet()) {
-                MyPerson person2 = (MyPerson) acquaintance.get(id2);
-                int degree1 = person1.getDegree();
-                int degree2 = person2.getDegree();
-                if (degree1 < degree2 || (degree1 == degree2 && id1 < id2)) {
-                    person1.addDirectedEdge(person2);
-                } else {
-                    person2.addDirectedEdge(person1);
-                }
-            }
-        }
-        //寻找三元环
-        int res = 0;
-        HashSet<Integer> visit = new HashSet<>();
-        for (Integer id1 : people.keySet()) {
-            MyPerson person1 = (MyPerson) people.get(id1);
-            HashMap<Integer, Person> directedEdge1 = person1.getDirectedEdge();
-            visit.addAll(directedEdge1.keySet());
-            for (Integer id2 : directedEdge1.keySet()) {
-                MyPerson person2 = (MyPerson) directedEdge1.get(id2);
-                HashMap<Integer, Person> directedEdge2 = person2.getDirectedEdge();
-                for (Integer id3 : directedEdge2.keySet()) {
-                    if (visit.contains(id3)) {
-                        res++;
-                    }
-                }
-            }
-        }
-        return res;
+        return tripleSum;
     }
 
     @Override

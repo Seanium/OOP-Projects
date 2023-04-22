@@ -10,28 +10,6 @@ public class MyPerson implements Person {
     private final int age;
     private final HashMap<Integer, Person> acquaintance = new HashMap<>();
     private final HashMap<Integer, Integer> value = new HashMap<>();
-    private int degree;
-    private final HashMap<Integer, Person> directedEdge = new HashMap<>();  //有向边
-
-    public void addDegree() {
-        degree++;
-    }
-
-    public int getDegree() {
-        return degree;
-    }
-
-    public void addDirectedEdge(Person person) {
-        directedEdge.put(person.getId(), person);
-    }
-
-    public void clearDirectedEdge() {
-        directedEdge.clear();
-    }
-
-    public HashMap<Integer, Person> getDirectedEdge() {
-        return directedEdge;
-    }
 
     public MyPerson(int id, String name, int age) {
         this.id = id;
