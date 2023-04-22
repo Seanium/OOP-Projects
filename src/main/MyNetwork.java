@@ -13,6 +13,7 @@ import exceptions.MyRelationNotFoundException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class MyNetwork implements Network {
     private final HashMap<Integer, Person> people = new HashMap<>();
@@ -122,18 +123,16 @@ public class MyNetwork implements Network {
         }
         //寻找三元环
         int res = 0;
-        HashMap<Integer, Boolean> visit = new HashMap<>();
+        HashSet<Integer> visit = new HashSet<>();
         for (Integer id1 : people.keySet()) {
             MyPerson person1 = (MyPerson) people.get(id1);
             HashMap<Integer, Person> directedEdge1 = person1.getDirectedEdge();
-            for (Integer id2 : directedEdge1.keySet()) {
-                visit.put(id2, true);
-            }
+            visit.addAll(directedEdge1.keySet());
             for (Integer id2 : directedEdge1.keySet()) {
                 MyPerson person2 = (MyPerson) directedEdge1.get(id2);
                 HashMap<Integer, Person> directedEdge2 = person2.getDirectedEdge();
                 for (Integer id3 : directedEdge2.keySet()) {
-                    if (visit.containsKey(id3)) {
+                    if (visit.contains(id3)) {
                         res++;
                     }
                 }
@@ -146,6 +145,9 @@ public class MyNetwork implements Network {
     public boolean queryTripleSumOKTest(HashMap<Integer, HashMap<Integer, Integer>> beforeData,
                                         HashMap<Integer, HashMap<Integer, Integer>> afterData,
                                         int result) {
+        if (!beforeData.equals(afterData)) {
+            return false;
+        }
         ArrayList<Person> peopleMap = new ArrayList<>();
         int correctResult = 0;
         //插入节点
@@ -195,6 +197,6 @@ public class MyNetwork implements Network {
                 }
             }
         }
-        return beforeData.equals(afterData) && correctResult == result;
+        return correctResult == result;
     }
 }
