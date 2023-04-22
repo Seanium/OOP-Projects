@@ -25,6 +25,10 @@ public class MyPerson implements Person {
         directedEdge.put(person.getId(), person);
     }
 
+    public void clearDirectedEdge() {
+        directedEdge.clear();
+    }
+
     public HashMap<Integer, Person> getDirectedEdge() {
         return directedEdge;
     }

@@ -106,7 +106,12 @@ public class MyNetwork implements Network {
 
     @Override
     public int queryTripleSum() {
-        //建立有向图
+        //清除旧的有向图
+        for (Integer id : people.keySet()) {
+            MyPerson person = (MyPerson) people.get(id);
+            person.clearDirectedEdge();
+        }
+        //建立新的有向图
         for (Integer id1 : people.keySet()) {
             MyPerson person1 = (MyPerson) people.get(id1);
             HashMap<Integer, Person> acquaintance = person1.getAcquaintance();
