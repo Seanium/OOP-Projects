@@ -11,7 +11,6 @@ import exceptions.MyEqualRelationException;
 import exceptions.MyPersonIdNotFoundException;
 import exceptions.MyRelationNotFoundException;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MyNetwork implements Network {
@@ -125,50 +124,21 @@ public class MyNetwork implements Network {
         if (!beforeData.equals(afterData)) {
             return false;
         }
-        ArrayList<Person> peopleMap = new ArrayList<>();
         int correctResult = 0;
-        //插入节点
+        HashMap<Integer, Integer> idxIdMap = new HashMap<>();
+        int idx = 0;
         for (Integer id : beforeData.keySet()) {
-            peopleMap.add(new MyPerson(id, "", 0));
+            idxIdMap.put(idx++, id);
         }
-        //插入边
-        for (Integer id1 : beforeData.keySet()) {
-            MyPerson person1 = null;
-            for (Person p : peopleMap) {
-                if (p.getId() == id1) {
-                    person1 = (MyPerson) p;
-                    break;
-                }
-            }
-            HashMap<Integer, Integer> acquaintanceId = beforeData.get(id1);
-            for (Integer id2 : acquaintanceId.keySet()) {
-                MyPerson person2 = null;
-                for (Person p : peopleMap) {
-                    if (p.getId() == id2) {
-                        person2 = (MyPerson) p;
-                        break;
-                    }
-                }
-                if (person1 != null) {
-                    person1.getAcquaintance().put(id2, person2);
-                }
-            }
-        }
-        //三元环计数
-        for (int i = 0; i < peopleMap.size(); i++) {
-            MyPerson person1 = (MyPerson) peopleMap.get(i);
-            int id1 = person1.getId();
-            HashMap<Integer, Person> acquaintance1 = person1.getAcquaintance();
-            for (int j = i + 1; j < peopleMap.size(); j++) {
-                MyPerson person2 = (MyPerson) peopleMap.get(j);
-                int id2 = person2.getId();
-                HashMap<Integer, Person> acquaintance2 = person2.getAcquaintance();
-                for (int k = j + 1; k < peopleMap.size(); k++) {
-                    MyPerson person3 = (MyPerson) peopleMap.get(k);
-                    int id3 = person3.getId();
-                    HashMap<Integer, Person> acquaintance3 = person3.getAcquaintance();
-                    if (acquaintance1.containsKey(id2) && acquaintance2.containsKey(id3) &&
-                            acquaintance3.containsKey(id1)) {
+        int size = idxIdMap.size();
+        for (int i = 0; i < size; i++) {
+            int id1 = idxIdMap.get(i);
+            for (int j = i + 1; j < size; j++) {
+                int id2 = idxIdMap.get(j);
+                for (int k = j + 1; k < size; k++) {
+                    int id3 = idxIdMap.get(k);
+                    if (beforeData.get(id1).containsKey(id2) && beforeData.get(id2).containsKey(id3)
+                            && beforeData.get(id3).containsKey(id1)) {
                         correctResult++;
                     }
                 }
