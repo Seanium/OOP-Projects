@@ -12,7 +12,6 @@ import com.oocourse.spec2.exceptions.RelationNotFoundException;
 import com.oocourse.spec2.main.Group;
 import com.oocourse.spec2.main.Message;
 import com.oocourse.spec2.main.Network;
-import com.oocourse.spec2.main.OkTest;
 import com.oocourse.spec2.main.Person;
 import exceptions.MyAcquaintanceNotFoundException;
 import exceptions.MyEqualGroupIdException;
