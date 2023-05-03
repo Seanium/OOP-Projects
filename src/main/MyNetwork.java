@@ -391,7 +391,7 @@ public class MyNetwork implements Network {
             message.getPerson1().addSocialValue(messageValue);
             message.getPerson2().addSocialValue(messageValue);
             messages.remove(id);
-            message.getPerson2().getMessages().add(message);
+            message.getPerson2().getMessages().add(0, message);
         } else {
             MyGroup group = (MyGroup) message.getGroup();
             HashMap<Integer, Person> groupPeople = group.getPeople();
