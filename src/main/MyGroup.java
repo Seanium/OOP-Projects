@@ -70,7 +70,7 @@ public class MyGroup implements Group {
         if (size == 0) {
             return 0;
         }
-        return agePowSum / size - ageSum * ageSum / size / size;
+        return (agePowSum - 2 * getAgeMean() * ageSum + size * getAgeMean() * getAgeMean()) / size;
     }
 
     @Override
