@@ -19,12 +19,19 @@ public class ShortestCircle {
         int failTime = 0;
         HashSet<Integer> friendIds = new HashSet<>(acquaintance.keySet());
         for (Integer friendId : friendIds) {
-            Person friend = people.get(friendId);
+            MyPerson friend = (MyPerson) people.get(friendId);
+            //删边
             acquaintance.remove(friendId, friend);
             int friendDis = value.remove(friendId);
+            friend.getAcquaintance().remove(id);
+            friend.getValue().remove(id);
+            //dij
             int dijDis = dij(people, id, friendId);
+            //把边加回
             acquaintance.put(friendId, friend);
             value.put(friendId, friendDis);
+            friend.getAcquaintance().put(id, person);
+            friend.getValue().put(id, friendDis);
             if (dijDis == -1) {
                 failTime++;
                 continue;
