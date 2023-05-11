@@ -1,7 +1,7 @@
 package main;
 
-import com.oocourse.spec2.main.Message;
-import com.oocourse.spec2.main.Person;
+import com.oocourse.spec3.main.Message;
+import com.oocourse.spec3.main.Person;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +13,7 @@ public class MyPerson implements Person {
     private final int age;
     private final HashMap<Integer, Person> acquaintance = new HashMap<>();
     private final HashMap<Integer, Integer> value = new HashMap<>();
+    private int money = 0;
     private int socialValue = 0;
     private final ArrayList<Message> messages = new ArrayList<>();
 
@@ -77,6 +78,16 @@ public class MyPerson implements Person {
     @Override
     public List<Message> getReceivedMessages() {
         return messages.size() < 5 ? messages : messages.subList(0, 5);
+    }
+
+    @Override
+    public void addMoney(int num) {
+        money += num;
+    }
+
+    @Override
+    public int getMoney() {
+        return money;
     }
 
     public HashMap<Integer, Person> getAcquaintance() {

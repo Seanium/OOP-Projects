@@ -1,12 +1,12 @@
 package exceptions;
 
-import com.oocourse.spec3.exceptions.EqualPersonIdException;
+import com.oocourse.spec3.exceptions.PathNotFoundException;
 
-public class MyEqualPersonIdException extends EqualPersonIdException {
+public class MyPathNotFoundException extends PathNotFoundException {
     private final int id;
     private static ExceptionCounter exceptionCounter = new ExceptionCounter();
 
-    public MyEqualPersonIdException(int id) {
+    public MyPathNotFoundException(int id) {
         this.id = id;
         exceptionCounter.addTotalCount();
         exceptionCounter.addIdCount(id);
@@ -14,7 +14,7 @@ public class MyEqualPersonIdException extends EqualPersonIdException {
 
     @Override
     public void print() {
-        System.out.println("epi-" + exceptionCounter.getTotalCount() +
+        System.out.println("pnf-" + exceptionCounter.getTotalCount() +
                 ", " + id + "-" + exceptionCounter.getIdCount(id));
     }
 }

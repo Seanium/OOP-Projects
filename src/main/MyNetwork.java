@@ -1,28 +1,34 @@
 package main;
 
-import com.oocourse.spec2.exceptions.AcquaintanceNotFoundException;
-import com.oocourse.spec2.exceptions.EqualGroupIdException;
-import com.oocourse.spec2.exceptions.EqualMessageIdException;
-import com.oocourse.spec2.exceptions.EqualPersonIdException;
-import com.oocourse.spec2.exceptions.EqualRelationException;
-import com.oocourse.spec2.exceptions.GroupIdNotFoundException;
-import com.oocourse.spec2.exceptions.MessageIdNotFoundException;
-import com.oocourse.spec2.exceptions.PersonIdNotFoundException;
-import com.oocourse.spec2.exceptions.RelationNotFoundException;
-import com.oocourse.spec2.main.Group;
-import com.oocourse.spec2.main.Message;
-import com.oocourse.spec2.main.Network;
-import com.oocourse.spec2.main.Person;
+import com.oocourse.spec3.exceptions.AcquaintanceNotFoundException;
+import com.oocourse.spec3.exceptions.EmojiIdNotFoundException;
+import com.oocourse.spec3.exceptions.EqualEmojiIdException;
+import com.oocourse.spec3.exceptions.EqualGroupIdException;
+import com.oocourse.spec3.exceptions.EqualMessageIdException;
+import com.oocourse.spec3.exceptions.EqualPersonIdException;
+import com.oocourse.spec3.exceptions.EqualRelationException;
+import com.oocourse.spec3.exceptions.GroupIdNotFoundException;
+import com.oocourse.spec3.exceptions.MessageIdNotFoundException;
+import com.oocourse.spec3.exceptions.PathNotFoundException;
+import com.oocourse.spec3.exceptions.PersonIdNotFoundException;
+import com.oocourse.spec3.exceptions.RelationNotFoundException;
+import com.oocourse.spec3.main.Group;
+import com.oocourse.spec3.main.Message;
+import com.oocourse.spec3.main.Network;
+import com.oocourse.spec3.main.NoticeMessage;
+import com.oocourse.spec3.main.Person;
 import exceptions.MyAcquaintanceNotFoundException;
+import exceptions.MyEmojiIdNotFoundException;
+import exceptions.MyEqualEmojiIdException;
 import exceptions.MyEqualGroupIdException;
-import exceptions.MyEqualMessageIdException;
 import exceptions.MyEqualPersonIdException;
 import exceptions.MyEqualRelationException;
 import exceptions.MyGroupIdNotFoundException;
-import exceptions.MyMessageIdNotFoundException;
+import exceptions.MyPathNotFoundException;
 import exceptions.MyPersonIdNotFoundException;
 import exceptions.MyRelationNotFoundException;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -35,10 +41,8 @@ public class MyNetwork implements Network {
     private final HashMap<Integer, Group> groups = new HashMap<>();
     private final HashMap<Integer, Message> messages = new HashMap<>();
     private final HashSet<Integer> visit = new HashSet<>();
-
-    public MyNetwork() {
-
-    }
+    private final HashSet<Integer> emojiIdList = new HashSet<>();
+    private final HashMap<Integer, Integer> emojiHeatList = new HashMap<>();
 
     @Override
     public boolean contains(int id) {
@@ -88,9 +92,8 @@ public class MyNetwork implements Network {
         //维护并查集
         disjointSet.merge(id1, id2);
         //维护tripleSum
-        for (Integer id : people.keySet()) {
-            MyPerson person = (MyPerson) getPerson(id);
-            HashMap<Integer, Person> acquaintance = person.getAcquaintance();
+        for (Person person : people.values()) {
+            HashMap<Integer, Person> acquaintance = ((MyPerson) person).getAcquaintance();
             if (acquaintance.containsKey(id1) && acquaintance.containsKey(id2)) {
                 tripleSum++;
             }
@@ -176,9 +179,8 @@ public class MyNetwork implements Network {
         final int oldBestId1 = person1.getBestAcquaintance();
         final int oldBestId2 = person2.getBestAcquaintance();
         //维护tripleSum
-        for (Integer id : people.keySet()) {
-            MyPerson person = (MyPerson) getPerson(id);
-            HashMap<Integer, Person> acquaintance = person.getAcquaintance();
+        for (Person person : people.values()) {
+            HashMap<Integer, Person> acquaintance = ((MyPerson) person).getAcquaintance();
             if (acquaintance.containsKey(id1) && acquaintance.containsKey(id2)) {
                 tripleSum--;
             }
@@ -356,15 +358,9 @@ public class MyNetwork implements Network {
     }
 
     @Override
-    public void addMessage(Message message) throws EqualMessageIdException, EqualPersonIdException {
-        int id = message.getId();
-        if (messages.containsKey(id)) {
-            throw new MyEqualMessageIdException(id);
-        }
-        if (message.getType() == 0 && message.getPerson1().equals(message.getPerson2())) {
-            throw new MyEqualPersonIdException(message.getPerson1().getId());
-        }
-        messages.put(id, message);
+    public void addMessage(Message message) throws
+            EqualMessageIdException, EmojiIdNotFoundException, EqualPersonIdException {
+        Tool.addMessage(message, messages, emojiIdList);
     }
 
     @Override
@@ -375,31 +371,7 @@ public class MyNetwork implements Network {
     @Override
     public void sendMessage(int id) throws
             RelationNotFoundException, MessageIdNotFoundException, PersonIdNotFoundException {
-        if (!containsMessage(id)) {
-            throw new MyMessageIdNotFoundException(id);
-        }
-        Message message = getMessage(id);
-        if (message.getType() == 0 && !message.getPerson1().isLinked(message.getPerson2())) {
-            throw new MyRelationNotFoundException(message.getPerson1().getId(),
-                    message.getPerson2().getId());
-        }
-        if (message.getType() == 1 && !message.getGroup().hasPerson(message.getPerson1())) {
-            throw new MyPersonIdNotFoundException(message.getPerson1().getId());
-        }
-        int messageValue = message.getSocialValue();
-        if (message.getType() == 0) {
-            message.getPerson1().addSocialValue(messageValue);
-            message.getPerson2().addSocialValue(messageValue);
-            messages.remove(id);
-            message.getPerson2().getMessages().add(0, message);
-        } else {
-            MyGroup group = (MyGroup) message.getGroup();
-            HashMap<Integer, Person> groupPeople = group.getPeople();
-            for (Integer i : groupPeople.keySet()) {
-                groupPeople.get(i).addSocialValue(messageValue);
-            }
-            messages.remove(id);
-        }
+        Tool.sendMessage(id, messages, emojiHeatList);
     }
 
     @Override
@@ -416,6 +388,49 @@ public class MyNetwork implements Network {
             throw new MyPersonIdNotFoundException(id);
         }
         return getPerson(id).getReceivedMessages();
+    }
+
+    @Override
+    public boolean containsEmojiId(int id) {
+        return emojiIdList.contains(id);
+    }
+
+    @Override
+    public void storeEmojiId(int id) throws EqualEmojiIdException {
+        if (containsEmojiId(id)) {
+            throw new MyEqualEmojiIdException(id);
+        }
+        emojiIdList.add(id);
+        emojiHeatList.put(id, 0);
+    }
+
+    @Override
+    public int queryMoney(int id) throws PersonIdNotFoundException {
+        if (!contains(id)) {
+            throw new MyPersonIdNotFoundException(id);
+        }
+        return getPerson(id).getMoney();
+    }
+
+    @Override
+    public int queryPopularity(int id) throws EmojiIdNotFoundException {
+        if (!containsEmojiId(id)) {
+            throw new MyEmojiIdNotFoundException(id);
+        }
+        return emojiHeatList.get(id);
+    }
+
+    @Override
+    public int deleteColdEmoji(int limit) {
+        return Tool.deleteColdEmoji(limit, emojiIdList, emojiHeatList, messages);
+    }
+
+    @Override
+    public void clearNotices(int personId) throws PersonIdNotFoundException {
+        if (!contains(personId)) {
+            throw new MyPersonIdNotFoundException(personId);
+        }
+        getPerson(personId).getMessages().removeIf(message -> message instanceof NoticeMessage);
     }
 
     @Override
@@ -453,10 +468,20 @@ public class MyNetwork implements Network {
     }
 
     @Override
-    public int modifyRelationOKTest(
-            int id1, int id2, int value,
-            HashMap<Integer, HashMap<Integer, Integer>> beforeData,
-            HashMap<Integer, HashMap<Integer, Integer>> afterData) {
-        return OkTest.modifyRelationOkTest(id1, id2, value, beforeData, afterData);
+    public int queryLeastMoments(int id) throws PersonIdNotFoundException, PathNotFoundException {
+        if (!contains(id)) {
+            throw new MyPersonIdNotFoundException(id);
+        }
+        int res = ShortestCircle.findShortestCircle(people, id);
+        if (res == -1) {
+            throw new MyPathNotFoundException(id);
+        }
+        return res;
+    }
+
+    @Override
+    public int deleteColdEmojiOKTest(int limit, ArrayList<HashMap<Integer, Integer>> beforeData,
+                                     ArrayList<HashMap<Integer, Integer>> afterData, int result) {
+        return Tool.deleteColdEmojiOkTest(limit, beforeData, afterData, result);
     }
 }

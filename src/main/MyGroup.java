@@ -1,7 +1,7 @@
 package main;
 
-import com.oocourse.spec2.main.Group;
-import com.oocourse.spec2.main.Person;
+import com.oocourse.spec3.main.Group;
+import com.oocourse.spec3.main.Person;
 
 import java.util.HashMap;
 

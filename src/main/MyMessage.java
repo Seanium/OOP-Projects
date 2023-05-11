@@ -1,8 +1,8 @@
 package main;
 
-import com.oocourse.spec2.main.Group;
-import com.oocourse.spec2.main.Message;
-import com.oocourse.spec2.main.Person;
+import com.oocourse.spec3.main.Group;
+import com.oocourse.spec3.main.Message;
+import com.oocourse.spec3.main.Person;
 
 public class MyMessage implements Message {
     private final int id;

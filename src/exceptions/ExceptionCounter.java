@@ -22,7 +22,7 @@ public class ExceptionCounter {
         return totalCount;
     }
 
-    public int getIdCount(int personId) {
-        return idCount.get(personId);
+    public int getIdCount(int id) {
+        return idCount.get(id);
     }
 }

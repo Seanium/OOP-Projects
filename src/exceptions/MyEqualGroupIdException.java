@@ -1,6 +1,6 @@
 package exceptions;
 
-import com.oocourse.spec2.exceptions.EqualGroupIdException;
+import com.oocourse.spec3.exceptions.EqualGroupIdException;
 
 public class MyEqualGroupIdException extends EqualGroupIdException {
     private final int id;

@@ -1,12 +1,12 @@
 package exceptions;
 
-import com.oocourse.spec3.exceptions.EqualPersonIdException;
+import com.oocourse.spec3.exceptions.EmojiIdNotFoundException;
 
-public class MyEqualPersonIdException extends EqualPersonIdException {
+public class MyEmojiIdNotFoundException extends EmojiIdNotFoundException {
     private final int id;
     private static ExceptionCounter exceptionCounter = new ExceptionCounter();
 
-    public MyEqualPersonIdException(int id) {
+    public MyEmojiIdNotFoundException(int id) {
         this.id = id;
         exceptionCounter.addTotalCount();
         exceptionCounter.addIdCount(id);
@@ -14,7 +14,7 @@ public class MyEqualPersonIdException extends EqualPersonIdException {
 
     @Override
     public void print() {
-        System.out.println("epi-" + exceptionCounter.getTotalCount() +
+        System.out.println("einf-" + exceptionCounter.getTotalCount() +
                 ", " + id + "-" + exceptionCounter.getIdCount(id));
     }
 }
