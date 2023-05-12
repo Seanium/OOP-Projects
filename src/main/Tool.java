@@ -160,10 +160,9 @@ public class Tool {
         return emojiIdList.contains(id);
     }
 
-    public static int deleteColdEmoji(int limit,
-                               HashSet<Integer> emojiIdList,
-                               HashMap<Integer, Integer> emojiHeatList,
-                               HashMap<Integer, Message> messages) {
+    public static int deleteColdEmoji(int limit, HashSet<Integer> emojiIdList,
+                                      HashMap<Integer, Integer> emojiHeatList,
+                                      HashMap<Integer, Message> messages) {
         Iterator<Integer> integerIterator = emojiIdList.iterator();
         //先删除emoji
         while (integerIterator.hasNext()) {
