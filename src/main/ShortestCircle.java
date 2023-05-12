@@ -4,70 +4,77 @@ import com.oocourse.spec3.main.Person;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.PriorityQueue;
 
 public class ShortestCircle {
     private static HashMap<Integer, Integer> dis = new HashMap<>();
     private static HashSet<Integer> vis = new HashSet<>();
     private static PriorityQueue<Node> heap = new PriorityQueue<>();
+    private static HashSet<Edge> edges = new HashSet<>();
+    private static HashMap<Integer, Integer> branches = new HashMap<>();
+    private static HashMap<Integer, Integer> preIds = new HashMap<>();
 
     public static int findShortestCircle(HashMap<Integer, Person> people, int id) {
-        MyPerson person = (MyPerson) people.get(id);
-        HashMap<Integer, Person> acquaintance = person.getAcquaintance();
-        HashMap<Integer, Integer> value = person.getValue();
+        dij(people, id);
         int minDis = Integer.MAX_VALUE;
-        int failTime = 0;
-        HashSet<Integer> friendIds = new HashSet<>(acquaintance.keySet());
-        for (Integer friendId : friendIds) {
-            MyPerson friend = (MyPerson) people.get(friendId);
-            //删边
-            acquaintance.remove(friendId, friend);
-            final int friendDis = value.remove(friendId);
-            friend.getAcquaintance().remove(id);
-            friend.getValue().remove(id);
-            //dij
-            final int dijDis = dij(people, id, friendId);
-            //把边加回
-            acquaintance.put(friendId, friend);
-            value.put(friendId, friendDis);
-            friend.getAcquaintance().put(id, person);
-            friend.getValue().put(id, friendDis);
-            if (dijDis == -1) {
-                failTime++;
-                continue;
+        for (Edge edge : edges) {
+            int id1 = edge.getId1();
+            int id2 = edge.getId2();
+            if (!Objects.equals(branches.get(id1), branches.get(id2))) {
+                int curDis = ((MyPerson) people.get(id1)).getValue().get(id2)
+                        + dis.get(id1) + dis.get(id2);
+                minDis = Math.min(curDis, minDis);
             }
-            minDis = Math.min(dijDis + friendDis, minDis);
         }
-        return failTime == acquaintance.size() ? -1 : minDis;
+        return minDis == Integer.MAX_VALUE ? -1 : minDis;
     }
 
-    private static int dij(HashMap<Integer, Person> people, int fromId, int toId) {
+    private static void dij(HashMap<Integer, Person> people, int fromId) {
         dis.clear();
         vis.clear();
         heap.clear();
+        edges.clear();
+        branches.clear();
+        preIds.clear();
         for (Integer i : people.keySet()) {
             dis.put(i, Integer.MAX_VALUE);
         }
         dis.put(fromId, 0);
         heap.add(new Node(fromId, 0));
+        int branchId = 0;
+        branches.put(fromId, branchId++);
         while (!heap.isEmpty()) {
+            //加入
             Node curNode = heap.poll();
             int curId = curNode.getId();
             if (vis.contains(curId)) {
                 continue;
             }
             vis.add(curId);
+            if (!branches.containsKey(curId)) {
+                int preId = preIds.get(curId);
+                if (branches.get(preId) == 0) {
+                    branches.put(curId, branchId++);
+                } else {
+                    branches.put(curId, branches.get(preId));
+                }
+                edges.remove(new Edge(curId, preId));
+            }
+            //更新
             MyPerson person = (MyPerson) people.get(curId);
             HashMap<Integer, Person> acquaintance = person.getAcquaintance();
             for (Integer friendId : acquaintance.keySet()) {
-                Person friend = people.get(friendId);
-                int friendDis = person.queryValue(friend);
-                if (!vis.contains(friendId) && dis.get(curId) + friendDis < dis.get(friendId)) {
-                    dis.put(friendId, dis.get(curId) + friendDis);
-                    heap.add(new Node(friendId, dis.get(friendId)));
+                int friendDis = person.queryValue(people.get(friendId));
+                if (!vis.contains(friendId)) {
+                    edges.add(new Edge(curId, friendId));
+                    if (dis.get(curId) + friendDis < dis.get(friendId)) {
+                        dis.put(friendId, dis.get(curId) + friendDis);
+                        heap.add(new Node(friendId, dis.get(friendId)));
+                        preIds.put(friendId, curId);
+                    }
                 }
             }
         }
-        return dis.get(toId) == Integer.MAX_VALUE ? -1 : dis.get(toId);
     }
 }
