@@ -22,11 +22,11 @@ public class ShortestCircle {
             MyPerson friend = (MyPerson) people.get(friendId);
             //删边
             acquaintance.remove(friendId, friend);
-            int friendDis = value.remove(friendId);
+            final int friendDis = value.remove(friendId);
             friend.getAcquaintance().remove(id);
             friend.getValue().remove(id);
             //dij
-            int dijDis = dij(people, id, friendId);
+            final int dijDis = dij(people, id, friendId);
             //把边加回
             acquaintance.put(friendId, friend);
             value.put(friendId, friendDis);
