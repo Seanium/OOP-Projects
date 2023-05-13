@@ -16,6 +16,9 @@ public class ShortestCircle {
     private static HashMap<Integer, Integer> preIds = new HashMap<>();
 
     public static int findShortestCircle(HashMap<Integer, Person> people, int id) {
+        if (((MyPerson) people.get(id)).getAcquaintance().size() <= 1) {
+            return -1;
+        }
         dij(people, id);
         int minDis = Integer.MAX_VALUE;
         for (Edge edge : edges) {
