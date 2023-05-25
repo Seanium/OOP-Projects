@@ -23,7 +23,7 @@ public class Tool {
                 }
             }
         }
-        //操作
+        //读入操作
         commandCnt = Integer.parseInt(scanner.nextLine());
         for (int i = 0; i < commandCnt; i++) {
             commands.add(scanner.nextLine());
@@ -34,8 +34,17 @@ public class Tool {
         String regex2 = "(?<date>\\[(?<year>\\d+)-(?<month>\\d+)-(?<day>\\d+)\\]) " +
                 "(?<pid>\\d+) (?<op>\\w+) (?<type>\\w)-(?<id>\\d+)";
         Pattern pattern2 = Pattern.compile(regex2);
+        String lastLine = commands.get(commandCnt - 1);
+        Matcher lastMatcher = pattern2.matcher(lastLine);
+        int lastMonth = 0;
+        int lastDay = 0;
+        if (lastMatcher.find()) {
+            lastMonth = Integer.parseInt(lastMatcher.group("month"));
+            lastDay = Integer.parseInt(lastMatcher.group("day"));
+        }
+        int lastDays = Date.dateToDays(lastMonth, lastDay);
         int commandIndex = 0;
-        for (int i = 1; i <= 365; i++) {
+        for (int i = 1; i <= lastDays; i++) {
             // 更新
             if ((i - 1) % 3 == 0) {
                 ArrangingLibrarian.updateShelf(Date.daysToDate(i));
