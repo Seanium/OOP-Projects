@@ -1,13 +1,7 @@
 import java.util.ArrayList;
-import java.util.HashSet;
 
 public class ArrangingLibrarian {
     private static ArrayList<Book> books = new ArrayList<>();
-    private static HashSet<Order> invalidOrders = new HashSet<>();
-
-    public static HashSet<Order> getInvalidOrders() {
-        return invalidOrders;
-    }
 
     public static void updateShelf(String date) {
         books.addAll(BorrowReturnLibrarian.getBooks());
@@ -18,11 +12,11 @@ public class ArrangingLibrarian {
         LogisticsDivision.getBooks().clear();
 
         for (Order order : OrderingLibrarian.getOrderList()) {
-            if (!invalidOrders.contains(order)) {
+            if (!OrderingLibrarian.getInvalidOrders().contains(order)) {
                 for (Book book : books) {
                     if (book.getType().equals(order.getType()) &&
                             book.getId().equals(order.getId())) {
-                        invalidOrders.add(order);
+                        OrderingLibrarian.getInvalidOrders().add(order);
                         books.remove(book);
                         OrderingLibrarian.borrow(date, order.getPid(),
                                 book.getType(), book.getId(), book);
@@ -31,8 +25,7 @@ public class ArrangingLibrarian {
                 }
             }
         }
-        OrderingLibrarian.getOrderList().removeAll(invalidOrders);
-        invalidOrders.clear();
+        OrderingLibrarian.removeInvalidOrders();
         Shelf.add(books);
     }
 }

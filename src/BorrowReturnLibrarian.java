@@ -40,6 +40,8 @@ public class BorrowReturnLibrarian {
                             "borrowing and returning librarian\n", date, pid, type, id);
                     Shelf.remove(book);
                     borrowMap.get(pid).add(book);
+                    OrderingLibrarian.addInvalidOrders(pid, type);
+                    OrderingLibrarian.removeInvalidOrders();
                 } else {
                     Shelf.remove(book);
                     books.add(book);

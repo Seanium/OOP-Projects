@@ -1,10 +1,16 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class OrderingLibrarian {
     private static ArrayList<Order> orderList = new ArrayList<>();
+    private static HashSet<Order> invalidOrders = new HashSet<>();
 
     public static ArrayList<Order> getOrderList() {
         return orderList;
+    }
+
+    public static HashSet<Order> getInvalidOrders() {
+        return invalidOrders;
     }
 
     public static boolean canOrder(String date, String pid, String type, String id) {
@@ -39,11 +45,20 @@ public class OrderingLibrarian {
         System.out.printf("%s %s borrowed %s-%s from ordering librarian\n", date, pid, type, id);
         BorrowReturnLibrarian.getBorrowMap().get(pid).add(book);
         if (type.equals("B")) {
-            for (Order order : orderList) {
-                if (order.getPid().equals(pid) && order.getType().equals(type)) {
-                    ArrangingLibrarian.getInvalidOrders().add(order);
-                }
+            addInvalidOrders(pid, type);
+        }
+    }
+
+    public static void addInvalidOrders(String pid, String type) {
+        for (Order order : orderList) {
+            if (order.getPid().equals(pid) && order.getType().equals(type)) {
+                invalidOrders.add(order);
             }
         }
+    }
+
+    public static void removeInvalidOrders() {
+        orderList.removeAll(invalidOrders);
+        invalidOrders.clear();
     }
 }
