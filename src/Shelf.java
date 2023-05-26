@@ -7,7 +7,7 @@ public class Shelf {
         books.add(book);
     }
 
-    public static void add(ArrayList<Book> newBooks) {
+    public static void addBooks(ArrayList<Book> newBooks) {
         books.addAll(newBooks);
     }
 

@@ -26,7 +26,7 @@ public class ArrangingLibrarian {
             }
         }
         OrderingLibrarian.removeInvalidOrders();
-        Shelf.add(books);
+        Shelf.addBooks(books);
         books.clear();
     }
 }
