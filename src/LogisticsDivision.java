@@ -9,6 +9,7 @@ public class LogisticsDivision {
 
     public static void repairAndAdd(String date, String type, String id, Book book) {
         System.out.printf("%s %s-%s got repaired by logistics division\n", date, type, id);
+        book.setSmeared(false);
         books.add(book);
     }
 }
