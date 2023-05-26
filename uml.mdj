@@ -894,7 +894,7 @@
 											"top": 158,
 											"width": 230.724609375,
 											"height": 13,
-											"text": "-daysInMonth: int",
+											"text": "-daysInMonth: int[]",
 											"horizontalAlignment": 0
 										}
 									],
@@ -4281,7 +4281,7 @@
 											"top": 824,
 											"width": 462.35693359375,
 											"height": 13,
-											"text": "+borrrow(date: String, pid: String, type: String, id: String, book: Book): void",
+											"text": "+borrow(date: String, pid: String, type: String, id: String, book: Book): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -4936,7 +4936,7 @@
 							},
 							"name": "daysInMonth",
 							"visibility": "private",
-							"type": "int"
+							"type": "int[]"
 						}
 					],
 					"operations": [
@@ -6171,7 +6171,7 @@
 							"_parent": {
 								"$ref": "AAAAAAGIUOX4qXdC0Bk="
 							},
-							"name": "borrrow",
+							"name": "borrow",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
