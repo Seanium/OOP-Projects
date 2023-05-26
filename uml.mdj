@@ -4298,7 +4298,7 @@
 											"top": 839,
 											"width": 462.35693359375,
 											"height": 13,
-											"text": "+addInvalidOrders(pid: String, type: String)",
+											"text": "+addInvalidOrders(pid: String, type: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -6256,6 +6256,15 @@
 									},
 									"name": "type",
 									"type": "String"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIVnDWWPspKDw=",
+									"_parent": {
+										"$ref": "AAAAAAGIUZCP4QYxT8g="
+									},
+									"type": "void",
+									"direction": "return"
 								}
 							]
 						},
