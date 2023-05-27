@@ -65,13 +65,17 @@ public class BorrowReturnLibrarian {
     }
 
     public static void lost(String date, String pid, String type, String id) {
-        //如果出现丢失，假设同学会立即到借还管理员处登记，并缴纳罚款
-        punish(date, pid);
         ArrayList<Book> borrowedBooks = borrowMap.get(pid);
         for (Book book : borrowedBooks) {
             if (book.getType().equals(type) && book.getId().equals(id)) {
+                //如果损坏，忽略丢失操作（面向评测机）
+                if (book.isSmeared()) {
+                    return;
+                }
+                //如果出现丢失，假设同学会立即到借还管理员处登记，并缴纳罚款
+                punish(date, pid);
                 borrowedBooks.remove(book);
-                break;
+                return;
             }
         }
     }

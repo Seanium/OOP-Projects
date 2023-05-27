@@ -17,7 +17,7 @@ public class ArrangingLibrarian {
                     if (book.getType().equals(order.getType()) &&
                             book.getId().equals(order.getId())) {
                         OrderingLibrarian.getInvalidOrders().add(order);
-                        books.remove(book);
+                        books.remove(book); //之后立刻break，所以这里遍历删除不会出错
                         OrderingLibrarian.borrow(date, order.getPid(),
                                 book.getType(), book.getId(), book);
                         break;
