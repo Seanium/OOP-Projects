@@ -8,6 +8,7 @@ public class Book {
     private String outPerson;
     private String outSchool;
     private String outPid;
+    private String state;
 
     public Book(String type, String id, String school, boolean allowOut) {
         this.type = type;
@@ -19,6 +20,7 @@ public class Book {
         this.outPerson = "";
         this.outSchool = "";
         this.outPid = "";
+        this.state = "Normal";
     }
 
     public void setOut(boolean lentOut, String outPerson, String outSchool, String outPid) {
@@ -62,6 +64,54 @@ public class Book {
 
     public String getOutSchool() {
         return outSchool;
+    }
+
+    public void refuseLend() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = oldState;
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void lend() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = "Lent";
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void collect() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = "Normal";
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void repair() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = oldState;
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void receive() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = oldState;
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void transport() {
+        //System.out.println("(State) [YYYY-mm-dd] <类别号-序列号> transfers from <原状态> to <新状态>\n");
+        String oldState = state;
+        state = oldState;
+        System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
+                Controller.getDate(), type, id, oldState, state);
     }
 }
 

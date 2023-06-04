@@ -28,6 +28,9 @@ public class BorrowReturnLibrarian {
             //System.out.printf("[YYYY-mm-dd] <服务部门> lent <学校名称>-<类别号-序列号> to <学校名称>-<学号>\n");
             System.out.printf("%s %s lent %s-%s-%s to %s\n",
                     date, this, school, type, id, person);
+            if (Controller.isNeedStateOutput()) {
+                book.lend();
+            }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                     date, person, school, type, id, this);
@@ -36,7 +39,6 @@ public class BorrowReturnLibrarian {
             //此前对于任何 B 类书籍的预定，将从此刻起被取消
             orderingLibrarian.addInvalidBOrders(person);
             orderingLibrarian.removeInvalidOrders();
-            //TODO: 状态转移
         } else {
             //System.out.printf("[YYYY-mm-dd] <服务部门> refused lending <学校名称>-<类别号-序列号>
             // to <学校名称>-<学号>\n");
@@ -44,7 +46,9 @@ public class BorrowReturnLibrarian {
                     date, this, school, type, id, person);
             shelf.removeBook(book);
             books.add(book);
-            //TODO: 状态转移
+            if (Controller.isNeedStateOutput()) {
+                book.refuseLend();
+            }
         }
     }
 
@@ -64,6 +68,9 @@ public class BorrowReturnLibrarian {
         //System.out.printf("[YYYY-mm-dd] <服务部门> collected <学校名称>-<类别号-序列号> from <学校名称>-<学号>\n");
         System.out.printf("%s %s collected %s-%s-%s from %s\n",
                 date, this, school, type, id, person);
+        if (Controller.isNeedStateOutput()) {
+            book.collect();
+        }
         //修复，书真正转移
         Controller.getpBooks().get(command.getPerson()).remove(book);
         if (book.isSmeared()) {

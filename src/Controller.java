@@ -13,6 +13,16 @@ public class Controller {
     private static ArrayList<Command> waitList = new ArrayList<>();
     private static ArrayList<Book> outBooks = new ArrayList<>(); //校际借阅出借队列
     private static ArrayList<Book> returnBooks = new ArrayList<>(); //校际借阅归还队列
+    private static String date;
+    private static boolean needStateOutput = true;
+
+    public static boolean isNeedStateOutput() {
+        return needStateOutput;
+    }
+
+    public static String getDate() {
+        return date;
+    }
 
     public static ArrayList<Book> getReturnBooks() {
         return returnBooks;
@@ -67,7 +77,7 @@ public class Controller {
                 Integer.parseInt(lastCommand.getDay()));
         int commandIndex = 0;
         for (int i = 1; i <= days; i++) {
-            String date = Date.daysToDate(i);
+            date = Date.daysToDate(i);
             beforeOpen(date); //每天开馆前的工作
             //如果是整理日，图书管理处确认本校购入图书，然后整理管理员整理图书，之后预定管理员发放校内预定图书
             if ((i - 1) % 3 == 0) {
@@ -109,6 +119,9 @@ public class Controller {
                 // by <服务部门> in <学校名称>\n");
                 System.out.printf("%s %s-%s-%s got transported by purchasing department in %s\n",
                         date, book.getSchool(), book.getType(), book.getId(), book.getSchool());
+                if (isNeedStateOutput()) {
+                    book.transport();
+                }
             }
             //图书管理处发送校级借阅归还图书
             for (Book book : returnBooks) {
@@ -116,6 +129,9 @@ public class Controller {
                 // by <服务部门> in <学校名称>\n");
                 System.out.printf("%s %s-%s-%s got transported by purchasing department in %s\n",
                         date, book.getSchool(), book.getType(), book.getId(), book.getOutSchool());
+                if (isNeedStateOutput()) {
+                    book.transport();
+                }
             }
         }
 
@@ -128,6 +144,9 @@ public class Controller {
             // by <服务部门> in <学校名称>\n");
             System.out.printf("%s %s-%s-%s got received by purchasing department in %s\n",
                     date, book.getSchool(), book.getType(), book.getId(), book.getSchool());
+            if (needStateOutput) {
+                book.receive();
+            }
             book.setOut(false, "", "", ""); //重设图书为非外借
             libraries.get(book.getSchool()).getPurchasingDepartment().addBook(book);
         }
@@ -137,6 +156,9 @@ public class Controller {
             // by <服务部门> in <学校名称>\n");
             System.out.printf("%s %s-%s-%s got received by purchasing department in %s\n",
                     date, book.getSchool(), book.getType(), book.getId(), book.getOutSchool());
+            if (needStateOutput) {
+                book.receive();
+            }
         }
         //发放校际借阅图书
         for (Book book : outBooks) {
@@ -146,6 +168,9 @@ public class Controller {
             //System.out.printf("[YYYY-mm-dd] <服务部门> lent <学校名称>-<类别号-序列号> to <学校名称>-<学号>\n");
             System.out.printf("%s purchasing department lent %s-%s-%s to %s\n",
                     date, book.getSchool(), type, id, book.getOutPerson());
+            if (Controller.isNeedStateOutput()) {
+                book.lend();
+            }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号>
             // from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from purchasing department\n",

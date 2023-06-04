@@ -43,12 +43,14 @@ public class SelfServiceMachine {
             //System.out.printf("[YYYY-mm-dd] <服务部门> lent <学校名称>-<类别号-序列号> to <学校名称>-<学号>\n");
             System.out.printf("%s %s lent %s-%s-%s to %s\n",
                     date, this, school, type, id, person);
+            if (Controller.isNeedStateOutput()) {
+                book.lend();
+            }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                     date, person, school, type, id, this);
             shelf.removeBook(book);
             Controller.getpBooks().get(person).add(book);
-            //TODO: 状态转移
         } else {
             //System.out.printf("[YYYY-mm-dd] <服务部门> refused lending <学校名称>-<类别号-序列号>
             // to <学校名称>-<学号>\n");
@@ -56,7 +58,9 @@ public class SelfServiceMachine {
                     date, this, school, type, id, person);
             shelf.removeBook(book);
             books.add(book);
-            //TODO: 状态转移
+            if (Controller.isNeedStateOutput()) {
+                book.refuseLend();
+            }
         }
     }
 
@@ -76,6 +80,9 @@ public class SelfServiceMachine {
         //System.out.printf("[YYYY-mm-dd] <服务部门> collected <学校名称>-<类别号-序列号> from <学校名称>-<学号>\n");
         System.out.printf("%s %s collected %s-%s-%s from %s\n",
                 date, this, school, type, id, person);
+        if (Controller.isNeedStateOutput()) {
+            book.collect();
+        }
         //修复，书真正转移
         Controller.getpBooks().get(command.getPerson()).remove(book);
         if (book.isSmeared()) {

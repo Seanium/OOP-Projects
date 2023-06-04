@@ -16,6 +16,9 @@ public class LogisticsDivision {
         System.out.printf("%s %s-%s-%s got repaired by %s in %s\n",
                 command.getDate(), book.getSchool(), book.getType(), book.getId(),
                 this, command.getSchool());
+        if (Controller.isNeedStateOutput()) {
+            book.repair();
+        }
         book.setSmeared(false);
     }
 
