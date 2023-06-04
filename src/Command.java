@@ -14,7 +14,7 @@ public class Command {
     private String typeId;
     private String type;
     private String id;
-    private boolean needBuy = false;
+    private boolean needBuy;
 
     public Command(String line) {
         this.line = line;
