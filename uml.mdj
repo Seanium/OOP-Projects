@@ -61,7 +61,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 31,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "ArrangingLibrarian"
 										},
@@ -75,7 +75,7 @@
 											"font": "Arial;13;0",
 											"left": -84,
 											"top": -194,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -96,7 +96,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 24,
-									"width": 1409.23291015625,
+									"width": 1511.45556640625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhhftKUSHnws="
@@ -133,7 +133,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 54,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -150,7 +150,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 69,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-borrowReturnLibrarian: BorrowReturnLibrarian",
 											"horizontalAlignment": 0
@@ -167,7 +167,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 84,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-selfServiceMachine: SelfServiceMachine",
 											"horizontalAlignment": 0
@@ -184,7 +184,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 99,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-logisticsDivision: LogisticsDivision",
 											"horizontalAlignment": 0
@@ -201,7 +201,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 114,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-purchasingDepartment: PurchasingDepartment",
 											"horizontalAlignment": 0
@@ -218,7 +218,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 129,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-orderingLibrarian: OrderingLibrarian",
 											"horizontalAlignment": 0
@@ -235,7 +235,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 144,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -244,7 +244,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 49,
-									"width": 1409.23291015625,
+									"width": 1511.45556640625,
 									"height": 113
 								},
 								{
@@ -269,7 +269,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 167,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "+ArrangingLibrarian(borrowReturnLibrarian: BorrowReturnLibrarian, selfServiceMachine: SelfServiceMachine, logisticsDivision: LogisticsDivision, purchasingDepartment: PurchasingDepartment, orderingLibrarian: OrderingLibrarian, shelf: Shelf)",
 											"horizontalAlignment": 0
@@ -286,7 +286,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 182,
-											"width": 1399.23291015625,
+											"width": 1501.45556640625,
 											"height": 13,
 											"text": "+arrange(date: String): void",
 											"horizontalAlignment": 0
@@ -295,7 +295,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 162,
-									"width": 1409.23291015625,
+									"width": 1511.45556640625,
 									"height": 38
 								},
 								{
@@ -335,7 +335,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 24,
-							"width": 1409.23291015625,
+							"width": 1511.45556640625,
 							"height": 176,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhhftKUSGsrs="
@@ -394,7 +394,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 231,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "Book"
 										},
@@ -408,7 +408,7 @@
 											"font": "Arial;13;0",
 											"left": -110,
 											"top": -354,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -429,7 +429,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 224,
-									"width": 490.1875,
+									"width": 527.79736328125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhiYiyUY0eCQ="
@@ -466,7 +466,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 254,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-type: String",
 											"horizontalAlignment": 0
@@ -483,7 +483,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 269,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-id: String",
 											"horizontalAlignment": 0
@@ -500,7 +500,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 284,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-smeared: boolean",
 											"horizontalAlignment": 0
@@ -517,7 +517,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 299,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-school: String",
 											"horizontalAlignment": 0
@@ -534,7 +534,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 314,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-allowOut: boolean",
 											"horizontalAlignment": 0
@@ -551,7 +551,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 329,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-lentOut: boolean",
 											"horizontalAlignment": 0
@@ -568,7 +568,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 344,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-outPerson: String",
 											"horizontalAlignment": 0
@@ -585,7 +585,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 359,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-outSchool: String",
 											"horizontalAlignment": 0
@@ -602,7 +602,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 374,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-outPid: String",
 											"horizontalAlignment": 0
@@ -619,7 +619,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 389,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "-state: String",
 											"horizontalAlignment": 0
@@ -628,7 +628,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 249,
-									"width": 490.1875,
+									"width": 527.79736328125,
 									"height": 158
 								},
 								{
@@ -653,7 +653,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 412,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+Book(type: String, id: String, school: String, allowOut: boolean)",
 											"horizontalAlignment": 0
@@ -670,7 +670,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 427,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+setOut(lentOut: boolean, outPerson: String, outSchool: String, outPid: String): void",
 											"horizontalAlignment": 0
@@ -687,7 +687,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 442,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+setSmeared(smeared: boolean): void",
 											"horizontalAlignment": 0
@@ -704,7 +704,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 457,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+getType(): String",
 											"horizontalAlignment": 0
@@ -721,7 +721,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 472,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+getId(): String",
 											"horizontalAlignment": 0
@@ -738,7 +738,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 487,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+isSmeared(): boolean",
 											"horizontalAlignment": 0
@@ -755,7 +755,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 502,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+getSchool(): String",
 											"horizontalAlignment": 0
@@ -772,7 +772,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 517,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+isAllowOut(): boolean",
 											"horizontalAlignment": 0
@@ -789,7 +789,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 532,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+isLentOut(): boolean",
 											"horizontalAlignment": 0
@@ -806,7 +806,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 547,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+getOutPerson(): String",
 											"horizontalAlignment": 0
@@ -823,7 +823,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 562,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+getOutSchool(): String",
 											"horizontalAlignment": 0
@@ -840,7 +840,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 577,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+refuseLend(): void",
 											"horizontalAlignment": 0
@@ -857,7 +857,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 592,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+lend(): void",
 											"horizontalAlignment": 0
@@ -874,7 +874,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 607,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+collect(): void",
 											"horizontalAlignment": 0
@@ -891,7 +891,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 622,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+repair(): void",
 											"horizontalAlignment": 0
@@ -908,7 +908,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 637,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+receive(): void",
 											"horizontalAlignment": 0
@@ -925,7 +925,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 652,
-											"width": 480.1875,
+											"width": 517.79736328125,
 											"height": 13,
 											"text": "+transport(): void",
 											"horizontalAlignment": 0
@@ -934,7 +934,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 407,
-									"width": 490.1875,
+									"width": 527.79736328125,
 									"height": 263
 								},
 								{
@@ -974,7 +974,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 224,
-							"width": 490.1875,
+							"width": 527.79736328125,
 							"height": 446,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhiYiyEYzVTs="
@@ -1033,7 +1033,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 703,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "BorrowReturnLibrarian"
 										},
@@ -1047,7 +1047,7 @@
 											"font": "Arial;13;0",
 											"left": -180,
 											"top": -286,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -1068,7 +1068,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 696,
-									"width": 637.52294921875,
+									"width": 683.69580078125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhi48K0dfThg="
@@ -1105,7 +1105,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 726,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -1122,7 +1122,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 741,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -1139,7 +1139,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 756,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "-orderingLibrarian: OrderingLibrarian",
 											"horizontalAlignment": 0
@@ -1156,7 +1156,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 771,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "-logisticsDivision: LogisticsDivision",
 											"horizontalAlignment": 0
@@ -1165,7 +1165,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 721,
-									"width": 637.52294921875,
+									"width": 683.69580078125,
 									"height": 68
 								},
 								{
@@ -1190,7 +1190,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 794,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+BorrowReturnLibrarian(shelf: Shelf, orderingLibrarian: OrderingLibrarian, logisticsDivision: LogisticsDivision)",
 											"horizontalAlignment": 0
@@ -1207,7 +1207,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 809,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+getBooks(): ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -1224,7 +1224,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 824,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+borrowTypeB(command: Command, book: Book): void",
 											"horizontalAlignment": 0
@@ -1241,7 +1241,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 839,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+returnTypeB(command: Command, book: Book): void",
 											"horizontalAlignment": 0
@@ -1258,7 +1258,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 854,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+punish(command: Command): void",
 											"horizontalAlignment": 0
@@ -1275,7 +1275,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 869,
-											"width": 627.52294921875,
+											"width": 673.69580078125,
 											"height": 13,
 											"text": "+toString(): String",
 											"horizontalAlignment": 0
@@ -1284,7 +1284,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 789,
-									"width": 637.52294921875,
+									"width": 683.69580078125,
 									"height": 98
 								},
 								{
@@ -1324,7 +1324,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 696,
-							"width": 637.52294921875,
+							"width": 683.69580078125,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhi48K0deXQM="
@@ -1383,7 +1383,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 919,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "Command"
 										},
@@ -1397,7 +1397,7 @@
 											"font": "Arial;13;0",
 											"left": 12,
 											"top": -302,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -1418,7 +1418,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 912,
-									"width": 232.955078125,
+									"width": 248.97021484375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhjUkBkjoBf8="
@@ -1455,7 +1455,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 942,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-line: String",
 											"horizontalAlignment": 0
@@ -1472,7 +1472,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 957,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-date: String",
 											"horizontalAlignment": 0
@@ -1489,7 +1489,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 972,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-year: String",
 											"horizontalAlignment": 0
@@ -1506,7 +1506,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 987,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-month: String",
 											"horizontalAlignment": 0
@@ -1523,7 +1523,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1002,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-day: String",
 											"horizontalAlignment": 0
@@ -1540,7 +1540,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1017,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-person: String",
 											"horizontalAlignment": 0
@@ -1557,7 +1557,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1032,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-school: String",
 											"horizontalAlignment": 0
@@ -1574,7 +1574,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1047,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-pid: String",
 											"horizontalAlignment": 0
@@ -1591,7 +1591,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1062,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-op: String",
 											"horizontalAlignment": 0
@@ -1608,7 +1608,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1077,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-typeId: String",
 											"horizontalAlignment": 0
@@ -1625,7 +1625,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1092,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-type: String",
 											"horizontalAlignment": 0
@@ -1642,7 +1642,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1107,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-id: String",
 											"horizontalAlignment": 0
@@ -1659,7 +1659,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1122,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "-needBuy: boolean",
 											"horizontalAlignment": 0
@@ -1668,7 +1668,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 937,
-									"width": 232.955078125,
+									"width": 248.97021484375,
 									"height": 203
 								},
 								{
@@ -1693,7 +1693,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1145,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+Command(line: String)",
 											"horizontalAlignment": 0
@@ -1710,7 +1710,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1160,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+setNeedBuy(needBuy: boolean): void",
 											"horizontalAlignment": 0
@@ -1727,7 +1727,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1175,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getDate(): String",
 											"horizontalAlignment": 0
@@ -1744,7 +1744,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1190,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getYear(): String",
 											"horizontalAlignment": 0
@@ -1761,7 +1761,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1205,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getMonth(): String",
 											"horizontalAlignment": 0
@@ -1778,7 +1778,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1220,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getDay(): String",
 											"horizontalAlignment": 0
@@ -1795,7 +1795,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1235,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getPerson(): String",
 											"horizontalAlignment": 0
@@ -1812,7 +1812,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1250,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getSchool(): String",
 											"horizontalAlignment": 0
@@ -1829,7 +1829,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1265,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getPid(): String",
 											"horizontalAlignment": 0
@@ -1846,7 +1846,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1280,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getOp(): String",
 											"horizontalAlignment": 0
@@ -1863,7 +1863,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1295,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getTypeId(): String",
 											"horizontalAlignment": 0
@@ -1880,7 +1880,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1310,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getType(): String",
 											"horizontalAlignment": 0
@@ -1897,7 +1897,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1325,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+getId(): String",
 											"horizontalAlignment": 0
@@ -1914,7 +1914,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1340,
-											"width": 222.955078125,
+											"width": 238.97021484375,
 											"height": 13,
 											"text": "+isNeedBuy(): boolean",
 											"horizontalAlignment": 0
@@ -1923,7 +1923,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1140,
-									"width": 232.955078125,
+									"width": 248.97021484375,
 									"height": 218
 								},
 								{
@@ -1963,7 +1963,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 912,
-							"width": 232.955078125,
+							"width": 248.97021484375,
 							"height": 446,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhjUkBkjnsPY="
@@ -2022,7 +2022,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 1383,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "Controller"
 										},
@@ -2036,7 +2036,7 @@
 											"font": "Arial;13;0",
 											"left": -128,
 											"top": -236,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2057,7 +2057,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1376,
-									"width": 354.31591796875,
+									"width": 379.5986328125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhj66iEqJS8c="
@@ -2094,7 +2094,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1406,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-commands: ArrayList<String>",
 											"horizontalAlignment": 0
@@ -2111,7 +2111,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1421,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-commandCnt: int",
 											"horizontalAlignment": 0
@@ -2128,7 +2128,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1436,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-schools: ArrayList<String>",
 											"horizontalAlignment": 0
@@ -2145,7 +2145,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1451,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-libraries: HashMap<String, Library>",
 											"horizontalAlignment": 0
@@ -2162,7 +2162,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1466,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-pBooks: HashMap<String, ArrayList<Book>>",
 											"horizontalAlignment": 0
@@ -2179,7 +2179,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1481,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-waitList: ArrayList<Command>",
 											"horizontalAlignment": 0
@@ -2196,7 +2196,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1496,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-outBooks: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -2213,7 +2213,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1511,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-returnBooks: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -2230,7 +2230,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1526,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-date: String",
 											"horizontalAlignment": 0
@@ -2247,7 +2247,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1541,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "-needStateOutput: boolean",
 											"horizontalAlignment": 0
@@ -2256,7 +2256,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1401,
-									"width": 354.31591796875,
+									"width": 379.5986328125,
 									"height": 158
 								},
 								{
@@ -2281,7 +2281,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1564,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+isNeedStateOutput(): boolean",
 											"horizontalAlignment": 0
@@ -2298,7 +2298,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1579,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+getDate(): String",
 											"horizontalAlignment": 0
@@ -2315,7 +2315,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1594,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+getReturnBooks(): ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -2332,7 +2332,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1609,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+getpBooks(): HashMap<String, ArrayList<Book>>",
 											"horizontalAlignment": 0
@@ -2349,7 +2349,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1624,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+getWaitList(): ArrayList<Command>",
 											"horizontalAlignment": 0
@@ -2366,7 +2366,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1639,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+getInput(): void",
 											"horizontalAlignment": 0
@@ -2383,7 +2383,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1654,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+runCommands(): void",
 											"horizontalAlignment": 0
@@ -2400,9 +2400,9 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1669,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
-											"text": "+beforeOpen(): void",
+											"text": "+beforeOpen(date: String): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2417,9 +2417,9 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1684,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
-											"text": "+lost(): void",
+											"text": "+lost(command: Command): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2434,9 +2434,9 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1699,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
-											"text": "+smear(): void",
+											"text": "+smear(command: Command): void",
 											"horizontalAlignment": 0
 										},
 										{
@@ -2451,7 +2451,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1714,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+processOutOrder(): void",
 											"horizontalAlignment": 0
@@ -2468,7 +2468,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1729,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+processLocalOrder(): void",
 											"horizontalAlignment": 0
@@ -2485,7 +2485,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1744,
-											"width": 344.31591796875,
+											"width": 369.5986328125,
 											"height": 13,
 											"text": "+canBorrow(person: String, type: String, id: String): boolean",
 											"horizontalAlignment": 0
@@ -2494,7 +2494,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1559,
-									"width": 354.31591796875,
+									"width": 379.5986328125,
 									"height": 203
 								},
 								{
@@ -2534,7 +2534,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 1376,
-							"width": 354.31591796875,
+							"width": 379.5986328125,
 							"height": 386,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhj66iEqIGv0="
@@ -2593,7 +2593,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 1791,
-											"width": 212.0751953125,
+											"width": 230.724609375,
 											"height": 13,
 											"text": "Date"
 										},
@@ -2607,7 +2607,7 @@
 											"font": "Arial;13;0",
 											"left": -272,
 											"top": -152,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2628,7 +2628,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1784,
-									"width": 222.0751953125,
+									"width": 240.724609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhkHm40tokq4="
@@ -2665,16 +2665,16 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1814,
-											"width": 212.0751953125,
+											"width": 230.724609375,
 											"height": 13,
-											"text": "-daysInMonth: int",
+											"text": "-daysInMonth: int[]",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1809,
-									"width": 222.0751953125,
+									"width": 240.724609375,
 									"height": 23
 								},
 								{
@@ -2699,7 +2699,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1837,
-											"width": 212.0751953125,
+											"width": 230.724609375,
 											"height": 13,
 											"text": "+dateToDays(month: int, day: int): int",
 											"horizontalAlignment": 0
@@ -2716,7 +2716,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1852,
-											"width": 212.0751953125,
+											"width": 230.724609375,
 											"height": 13,
 											"text": "+daysToDate(days: int): String",
 											"horizontalAlignment": 0
@@ -2725,7 +2725,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1832,
-									"width": 222.0751953125,
+									"width": 240.724609375,
 									"height": 38
 								},
 								{
@@ -2765,7 +2765,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 1784,
-							"width": 222.0751953125,
+							"width": 240.724609375,
 							"height": 86,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhkHm40tnLgI="
@@ -2824,7 +2824,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 1903,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "Library"
 										},
@@ -2838,7 +2838,7 @@
 											"font": "Arial;13;0",
 											"left": -284,
 											"top": -118,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2859,7 +2859,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1896,
-									"width": 317.46142578125,
+									"width": 342.76318359375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhkacy0yNVxw="
@@ -2896,7 +2896,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1926,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-school: String",
 											"horizontalAlignment": 0
@@ -2913,7 +2913,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1941,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -2930,7 +2930,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1956,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-selfServiceMachine: SelfServiceMachine",
 											"horizontalAlignment": 0
@@ -2947,7 +2947,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1971,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-borrowReturnLibrarian: BorrowReturnLibrarian",
 											"horizontalAlignment": 0
@@ -2964,7 +2964,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 1986,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-orderingLibrarian: OrderingLibrarian",
 											"horizontalAlignment": 0
@@ -2981,7 +2981,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2001,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-purchasingDepartment: PurchasingDepartment",
 											"horizontalAlignment": 0
@@ -2998,7 +2998,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2016,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-logisticsDivision: LogisticsDivision",
 											"horizontalAlignment": 0
@@ -3015,7 +3015,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2031,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "-arrangingLibrarian: ArrangingLibrarian",
 											"horizontalAlignment": 0
@@ -3024,7 +3024,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 1921,
-									"width": 317.46142578125,
+									"width": 342.76318359375,
 									"height": 128
 								},
 								{
@@ -3049,7 +3049,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2054,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+Library(school: String)",
 											"horizontalAlignment": 0
@@ -3066,7 +3066,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2069,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+getArrangingLibrarian(): ArrangingLibrarian",
 											"horizontalAlignment": 0
@@ -3083,7 +3083,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2084,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+getBorrowReturnLibrarian(): BorrowReturnLibrarian",
 											"horizontalAlignment": 0
@@ -3100,7 +3100,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2099,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+getShelf(): Shelf",
 											"horizontalAlignment": 0
@@ -3117,7 +3117,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2114,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+getOrderingLibrarian(): OrderingLibrarian",
 											"horizontalAlignment": 0
@@ -3134,7 +3134,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2129,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+getPurchasingDepartment(): PurchasingDepartment",
 											"horizontalAlignment": 0
@@ -3151,7 +3151,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2144,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+initBooks(matcher: Matcher): void",
 											"horizontalAlignment": 0
@@ -3168,7 +3168,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2159,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+borrow(command: Command): void",
 											"horizontalAlignment": 0
@@ -3185,7 +3185,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2174,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+order(command: Command): void",
 											"horizontalAlignment": 0
@@ -3202,7 +3202,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2189,
-											"width": 307.46142578125,
+											"width": 332.76318359375,
 											"height": 13,
 											"text": "+returnBook(command: Command): void",
 											"horizontalAlignment": 0
@@ -3211,7 +3211,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2049,
-									"width": 317.46142578125,
+									"width": 342.76318359375,
 									"height": 158
 								},
 								{
@@ -3251,7 +3251,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 1896,
-							"width": 317.46142578125,
+							"width": 342.76318359375,
 							"height": 311,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhkacy0yMFHs="
@@ -3310,7 +3310,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 2247,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "LogisticsDivision"
 										},
@@ -3324,7 +3324,7 @@
 											"font": "Arial;13;0",
 											"left": -176,
 											"top": -146,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3345,7 +3345,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2240,
-									"width": 287.09423828125,
+									"width": 310.625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhkks901xM2s="
@@ -3382,7 +3382,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2270,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -3391,7 +3391,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2265,
-									"width": 287.09423828125,
+									"width": 310.625,
 									"height": 23
 								},
 								{
@@ -3416,7 +3416,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2293,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "+LogisticsDivision()",
 											"horizontalAlignment": 0
@@ -3433,7 +3433,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2308,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "+getBooks(): ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -3450,7 +3450,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2323,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "+repair(command: Command, book: Book): void",
 											"horizontalAlignment": 0
@@ -3467,7 +3467,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2338,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "+addBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -3484,7 +3484,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2353,
-											"width": 277.09423828125,
+											"width": 300.625,
 											"height": 13,
 											"text": "+toString(): String",
 											"horizontalAlignment": 0
@@ -3493,7 +3493,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2288,
-									"width": 287.09423828125,
+									"width": 310.625,
 									"height": 83
 								},
 								{
@@ -3533,7 +3533,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 2240,
-							"width": 287.09423828125,
+							"width": 310.625,
 							"height": 131,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhkks901w48s="
@@ -3592,7 +3592,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 2415,
-											"width": 149.1953125,
+											"width": 161.5224609375,
 											"height": 13,
 											"text": "Main"
 										},
@@ -3606,7 +3606,7 @@
 											"font": "Arial;13;0",
 											"left": -88,
 											"top": -106,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3627,7 +3627,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2408,
-									"width": 159.1953125,
+									"width": 171.5224609375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhmTsY07bPMM="
@@ -3654,7 +3654,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2433,
-									"width": 159.1953125,
+									"width": 171.5224609375,
 									"height": 10
 								},
 								{
@@ -3679,7 +3679,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2448,
-											"width": 149.1953125,
+											"width": 161.5224609375,
 											"height": 13,
 											"text": "+main(args: String[]): void",
 											"horizontalAlignment": 0
@@ -3688,7 +3688,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2443,
-									"width": 159.1953125,
+									"width": 171.5224609375,
 									"height": 23
 								},
 								{
@@ -3728,7 +3728,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 2408,
-							"width": 159.1953125,
+							"width": 171.5224609375,
 							"height": 58,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhmTsY07ajbQ="
@@ -3787,7 +3787,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 2503,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "OrderingLibrarian"
 										},
@@ -3801,7 +3801,7 @@
 											"font": "Arial;13;0",
 											"left": -30,
 											"top": -128,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3822,7 +3822,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2496,
-									"width": 367.30322265625,
+									"width": 398.35595703125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhmT6+k8G0rg="
@@ -3859,7 +3859,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2526,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -3876,7 +3876,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2541,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "-orderList: ArrayList<Command>",
 											"horizontalAlignment": 0
@@ -3893,7 +3893,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2556,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "-invalidOrders: HashSet<Command>",
 											"horizontalAlignment": 0
@@ -3902,7 +3902,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2521,
-									"width": 367.30322265625,
+									"width": 398.35595703125,
 									"height": 53
 								},
 								{
@@ -3927,7 +3927,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2579,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+OrderingLibrarian(shelf: Shelf)",
 											"horizontalAlignment": 0
@@ -3944,7 +3944,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2594,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+getOrderList(): ArrayList<Command>",
 											"horizontalAlignment": 0
@@ -3961,7 +3961,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2609,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+getInvalidOrders(): HashSet<Command>",
 											"horizontalAlignment": 0
@@ -3978,7 +3978,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2624,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+canOrder(command: Command): boolean",
 											"horizontalAlignment": 0
@@ -3995,7 +3995,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2639,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+order(command: Command): void",
 											"horizontalAlignment": 0
@@ -4012,7 +4012,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2654,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+addInvalidBOrders(person: String): void",
 											"horizontalAlignment": 0
@@ -4029,7 +4029,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2669,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+addInvalidCOrders(person: String, id: String): void",
 											"horizontalAlignment": 0
@@ -4046,7 +4046,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2684,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+removeInvalidOrders(): void",
 											"horizontalAlignment": 0
@@ -4063,7 +4063,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2699,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+borrow(command: Command, book: Book, date: String): void",
 											"horizontalAlignment": 0
@@ -4080,7 +4080,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2714,
-											"width": 357.30322265625,
+											"width": 388.35595703125,
 											"height": 13,
 											"text": "+toString(): String",
 											"horizontalAlignment": 0
@@ -4089,7 +4089,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2574,
-									"width": 367.30322265625,
+									"width": 398.35595703125,
 									"height": 158
 								},
 								{
@@ -4129,7 +4129,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 2496,
-							"width": 367.30322265625,
+							"width": 398.35595703125,
 							"height": 236,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhmT6+k8Fvyk="
@@ -4188,7 +4188,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 2767,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "PurchasingDepartment"
 										},
@@ -4202,7 +4202,7 @@
 											"font": "Arial;13;0",
 											"left": -226,
 											"top": -284,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4223,7 +4223,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2760,
-									"width": 523.3984375,
+									"width": 563.29345703125,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhmjLzk/4U38="
@@ -4260,7 +4260,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2790,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4277,7 +4277,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2805,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "-school: String",
 											"horizontalAlignment": 0
@@ -4294,7 +4294,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2820,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "-orderingLibrarian: OrderingLibrarian",
 											"horizontalAlignment": 0
@@ -4311,7 +4311,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2835,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -4320,7 +4320,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2785,
-									"width": 523.3984375,
+									"width": 563.29345703125,
 									"height": 68
 								},
 								{
@@ -4345,7 +4345,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2858,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "+PurchasingDepartment(school: String, orderingLibrarian: OrderingLibrarian, shelf: Shelf)",
 											"horizontalAlignment": 0
@@ -4362,7 +4362,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2873,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "+getBooks(): ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4379,7 +4379,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2888,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "+addBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -4396,7 +4396,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2903,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "+buy(date: String): void",
 											"horizontalAlignment": 0
@@ -4413,7 +4413,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2918,
-											"width": 513.3984375,
+											"width": 553.29345703125,
 											"height": 13,
 											"text": "+toString(): String",
 											"horizontalAlignment": 0
@@ -4422,7 +4422,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2853,
-									"width": 523.3984375,
+									"width": 563.29345703125,
 									"height": 83
 								},
 								{
@@ -4462,7 +4462,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 2760,
-							"width": 523.3984375,
+							"width": 563.29345703125,
 							"height": 176,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhmjLzk/3eH4="
@@ -4521,7 +4521,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 2975,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "SelfServiceMachine"
 										},
@@ -4535,7 +4535,7 @@
 											"font": "Arial;13;0",
 											"left": -174,
 											"top": -180,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4556,7 +4556,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2968,
-									"width": 682.3056640625,
+									"width": 726.9931640625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhm23y1D0ycE="
@@ -4593,7 +4593,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 2998,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4610,7 +4610,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3013,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "-shelf: Shelf",
 											"horizontalAlignment": 0
@@ -4627,7 +4627,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3028,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "-borrowReturnLibrarian: BorrowReturnLibrarian",
 											"horizontalAlignment": 0
@@ -4644,7 +4644,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3043,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "-logisticsDivision: LogisticsDivision",
 											"horizontalAlignment": 0
@@ -4653,7 +4653,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 2993,
-									"width": 682.3056640625,
+									"width": 726.9931640625,
 									"height": 68
 								},
 								{
@@ -4678,7 +4678,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3066,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+SelfServiceMachine(shelf: Shelf, borrowReturnLibrarian: BorrowReturnLibrarian, logisticsDivision: LogisticsDivision)",
 											"horizontalAlignment": 0
@@ -4695,7 +4695,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3081,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+getBooks(): ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4712,7 +4712,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3096,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+query(command: Command): Book",
 											"horizontalAlignment": 0
@@ -4729,7 +4729,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3111,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+borrowTypeC(command: Command, book: Book): void",
 											"horizontalAlignment": 0
@@ -4746,7 +4746,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3126,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+returnTypeC(command: Command, book: Book): void",
 											"horizontalAlignment": 0
@@ -4763,7 +4763,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3141,
-											"width": 672.3056640625,
+											"width": 716.9931640625,
 											"height": 13,
 											"text": "+toString(): String",
 											"horizontalAlignment": 0
@@ -4772,7 +4772,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 3061,
-									"width": 682.3056640625,
+									"width": 726.9931640625,
 									"height": 98
 								},
 								{
@@ -4812,7 +4812,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 2968,
-							"width": 682.3056640625,
+							"width": 726.9931640625,
 							"height": 191,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhm23y1Dz+pc="
@@ -4871,7 +4871,7 @@
 											"font": "Arial;13;1",
 											"left": 29,
 											"top": 3191,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "Shelf"
 										},
@@ -4885,7 +4885,7 @@
 											"font": "Arial;13;0",
 											"left": -254,
 											"top": -304,
-											"width": 73.67724609375,
+											"width": 82.3798828125,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4906,7 +4906,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 3184,
-									"width": 278.44873046875,
+									"width": 299.26904296875,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGIhnGw4FIDfYo="
@@ -4943,7 +4943,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3214,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "-books: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4960,7 +4960,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3229,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "-ownedBooks: ArrayList<Book>",
 											"horizontalAlignment": 0
@@ -4969,7 +4969,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 3209,
-									"width": 278.44873046875,
+									"width": 299.26904296875,
 									"height": 38
 								},
 								{
@@ -4994,7 +4994,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3252,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+Shelf()",
 											"horizontalAlignment": 0
@@ -5011,7 +5011,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3267,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+addOwnedBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -5028,7 +5028,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3282,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+removeOwnedBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -5045,7 +5045,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3297,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+addBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -5062,7 +5062,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3312,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+removeBook(book: Book): void",
 											"horizontalAlignment": 0
@@ -5079,7 +5079,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3327,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+addBooks(newBooks: ArrayList<Book>): void",
 											"horizontalAlignment": 0
@@ -5096,7 +5096,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3342,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+query(type: String, id: String): Book",
 											"horizontalAlignment": 0
@@ -5113,7 +5113,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3357,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+queryOut(type: String, id: String): Book",
 											"horizontalAlignment": 0
@@ -5130,7 +5130,7 @@
 											"font": "Arial;13;0",
 											"left": 29,
 											"top": 3372,
-											"width": 268.44873046875,
+											"width": 289.26904296875,
 											"height": 13,
 											"text": "+ownedEver(type: String, id: String): boolean",
 											"horizontalAlignment": 0
@@ -5139,7 +5139,7 @@
 									"font": "Arial;13;0",
 									"left": 24,
 									"top": 3247,
-									"width": 278.44873046875,
+									"width": 299.26904296875,
 									"height": 143
 								},
 								{
@@ -5179,7 +5179,7 @@
 							"containerChangeable": true,
 							"left": 24,
 							"top": 3184,
-							"width": 278.44873046875,
+							"width": 299.26904296875,
 							"height": 206,
 							"nameCompartment": {
 								"$ref": "AAAAAAGIhnGw4FIC62o="
@@ -6789,6 +6789,15 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIhn6cmVL09Xg=",
+									"_parent": {
+										"$ref": "AAAAAAGIhj0GCUoY430="
+									},
+									"name": "date",
+									"type": "String"
 								}
 							]
 						},
@@ -6808,6 +6817,17 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIhn7+C1L3Jfs=",
+									"_parent": {
+										"$ref": "AAAAAAGIhj0vYEohiTg="
+									},
+									"name": "command",
+									"type": {
+										"$ref": "AAAAAAGIhi81QkenqZw="
+									}
 								}
 							]
 						},
@@ -6827,6 +6847,17 @@
 									},
 									"type": "void",
 									"direction": "return"
+								},
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGIhn8iX1L6XfM=",
+									"_parent": {
+										"$ref": "AAAAAAGIhj1aaUoqvj4="
+									},
+									"name": "command",
+									"type": {
+										"$ref": "AAAAAAGIhi81QkenqZw="
+									}
 								}
 							]
 						},
@@ -6932,7 +6963,7 @@
 							},
 							"name": "daysInMonth",
 							"visibility": "private",
-							"type": "int"
+							"type": "int[]"
 						}
 					],
 					"operations": [
