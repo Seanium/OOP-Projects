@@ -230,19 +230,19 @@ public class Controller {
             String pid = command.getPid();
             String type = command.getType();
             String id = command.getId();
-            if (canBorrow(person, type, id)) {
-                for (String school1 : schools) {
-                    Library library = libraries.get(school1);
-                    Book book = library.getShelf().queryOut(type, id);
-                    if (book != null) {
+            for (String school1 : schools) {
+                Library library = libraries.get(school1);
+                Book book = library.getShelf().queryOut(type, id);
+                if (book != null) {
+                    if (canBorrow(person, type, id)) {
                         book.setOut(true, person, school, pid);
                         library.getShelf().removeBook(book);
                         outBooks.add(book); //添加到派送队列
                         pBooks.get(person).add(book); //提前分配，因为校际借阅需要提前判断
-                        waitList.remove(command);
-                        j--;
-                        break;
                     }
+                    waitList.remove(command);
+                    j--;
+                    break;
                 }
             }
         }
