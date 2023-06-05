@@ -113,7 +113,7 @@ public class Controller {
             }
             processOutOrder(); //校际借阅
             processLocalOrder(); //非校际借阅，即预定，可能预购
-            //图书管理处发送校级借阅出借图书
+            //图书管理处发送校际借阅出借图书
             for (Book book : outBooks) {
                 //System.out.printf("[YYYY-mm-dd] <学校名称>-<类别号-序列号> got transported
                 // by <服务部门> in <学校名称>\n");
@@ -123,7 +123,7 @@ public class Controller {
                     book.transport();
                 }
             }
-            //图书管理处发送校级借阅归还图书
+            //图书管理处发送校际借阅归还图书
             for (Book book : returnBooks) {
                 //System.out.printf("[YYYY-mm-dd] <学校名称>-<类别号-序列号> got transported
                 // by <服务部门> in <学校名称>\n");
@@ -231,7 +231,8 @@ public class Controller {
             String type = command.getType();
             String id = command.getId();
             if (canBorrow(person, type, id)) {
-                for (Library library : libraries.values()) {
+                for (String school1 : schools) {
+                    Library library = libraries.get(school1);
                     Book book = library.getShelf().queryOut(type, id);
                     if (book != null) {
                         book.setOut(true, person, school, pid);
