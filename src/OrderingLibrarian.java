@@ -103,6 +103,7 @@ public class OrderingLibrarian {
         //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
         System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                 date, person, school, type, id, this);
+        book.setLimitDay(date);
         Controller.getpBooks().get(person).add(book);
         if (type.equals("B")) {
             addInvalidBOrders(person);

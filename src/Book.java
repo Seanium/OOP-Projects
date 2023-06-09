@@ -9,6 +9,7 @@ public class Book {
     private String outSchool;
     private String outPid;
     private String state;
+    private int limitDay;
 
     public Book(String type, String id, String school, boolean allowOut) {
         this.type = type;
@@ -21,6 +22,7 @@ public class Book {
         this.outSchool = "";
         this.outPid = "";
         this.state = "Normal";
+        this.limitDay = 0;
     }
 
     public void setOut(boolean lentOut, String outPerson, String outSchool, String outPid) {
@@ -112,6 +114,15 @@ public class Book {
         state = oldState;
         System.out.printf("(State) %s %s-%s transfers from %s to %s\n",
                 Controller.getDate(), type, id, oldState, state);
+    }
+
+    public void setLimitDay(String date) {
+        this.limitDay = type.equals("B") ? Date.stringDateToDays(date) + 30 :
+                Date.stringDateToDays(date) + 60;
+    }
+
+    public int getLimitDay() {
+        return limitDay;
     }
 }
 

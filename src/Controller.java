@@ -175,6 +175,7 @@ public class Controller {
             // from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from purchasing department\n",
                     date, book.getOutPerson(), book.getSchool(), book.getType(), book.getId());
+            book.setLimitDay(date);
             pBooks.get(book.getOutPerson()).add(book);
             //不再符合数目限制的校内预定会自动被取消（如果是购置新书的请求也不会被完成）
             OrderingLibrarian orderingLibrarian =

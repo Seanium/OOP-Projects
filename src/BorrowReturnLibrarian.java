@@ -34,6 +34,7 @@ public class BorrowReturnLibrarian {
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                     date, person, school, type, id, this);
+            book.setLimitDay(date);
             shelf.removeBook(book);
             Controller.getpBooks().get(person).add(book);
             //此前对于任何 B 类书籍的预定，将从此刻起被取消
@@ -63,6 +64,9 @@ public class BorrowReturnLibrarian {
         String school = book.getSchool();
         String type = book.getType();
         String id = book.getId();
+        if (Date.stringDateToDays(date) > book.getLimitDay()) {
+            punish(command);
+        }
         //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> returned <学校名称>-<类别号-序列号> to <服务部门>\n");
         System.out.printf("%s %s returned %s-%s-%s to %s\n", date, person, school, type, id, this);
         //System.out.printf("[YYYY-mm-dd] <服务部门> collected <学校名称>-<类别号-序列号> from <学校名称>-<学号>\n");
