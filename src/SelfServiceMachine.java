@@ -26,10 +26,18 @@ public class SelfServiceMachine {
         //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> queried <类别号-序列号> from <服务部门>\n");
         System.out.printf("%s %s queried %s-%s from %s\n",
                 date, person, type, id, this);
+        if (Controller.isNeedStateOutput()) {
+            System.out.printf("(Sequence) %s SelfServiceMachine sends " +
+                    "a message to SelfServiceMachine\n", date);
+        }
         //System.out.printf("[YYYY-mm-dd] self-service machine provided information of
         // <类别号-序列号>\n");
         System.out.printf("%s self-service machine provided information of %s-%s\n",
                 date, type, id);
+        if (Controller.isNeedStateOutput()) {
+            System.out.printf("(Sequence) %s SelfServiceMachine sends " +
+                    "a message to SelfServiceMachine\n", date);
+        }
         return shelf.query(type, id);
     }
 
@@ -46,6 +54,10 @@ public class SelfServiceMachine {
             if (Controller.isNeedStateOutput()) {
                 book.lend();
             }
+            if (Controller.isNeedStateOutput()) {
+                System.out.printf("(Sequence) %s SelfServiceMachine sends " +
+                        "a message to SelfServiceMachine\n", date);
+            }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                     date, person, school, type, id, this);
@@ -61,6 +73,10 @@ public class SelfServiceMachine {
             books.add(book);
             if (Controller.isNeedStateOutput()) {
                 book.refuseLend();
+            }
+            if (Controller.isNeedStateOutput()) {
+                System.out.printf("(Sequence) %s SelfServiceMachine sends " +
+                        "a message to SelfServiceMachine\n", date);
             }
         }
     }

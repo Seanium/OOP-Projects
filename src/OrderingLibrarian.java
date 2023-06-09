@@ -60,6 +60,7 @@ public class OrderingLibrarian {
             // <学校名称>-<学号>'s order of <学校名称>-<类别号-序列号>\n");
             System.out.printf("%s ordering librarian recorded " +
                     "%s's order of %s-%s-%s\n", date, person, school, type, id);
+            orderNewBook();
             //本校预定：如果该校从未有过该书，则购买。初始化数+已订购且到货数-丢失数=0才购买，否则仅预定。
             if (!shelf.ownedEver(type, id)) {
                 command.setNeedBuy(true);
@@ -100,6 +101,7 @@ public class OrderingLibrarian {
         if (Controller.isNeedStateOutput()) {
             book.lend();
         }
+        getOrderedBook();
         //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
         System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                 date, person, school, type, id, this);
@@ -107,6 +109,20 @@ public class OrderingLibrarian {
         Controller.getpBooks().get(person).add(book);
         if (type.equals("B")) {
             addInvalidBOrders(person);
+        }
+    }
+
+    public void orderNewBook() {
+        if (Controller.isNeedStateOutput()) {
+            System.out.printf("(Sequence) %s OrderingLibrarian sends " +
+                    "a message to OrderingLibrarian\n", Controller.getDate());
+        }
+    }
+
+    public void getOrderedBook() {
+        if (Controller.isNeedStateOutput()) {
+            System.out.printf("(Sequence) %s OrderingLibrarian sends " +
+                    "a message to OrderingLibrarian\n", Controller.getDate());
         }
     }
 

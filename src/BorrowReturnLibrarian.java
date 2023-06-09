@@ -31,6 +31,10 @@ public class BorrowReturnLibrarian {
             if (Controller.isNeedStateOutput()) {
                 book.lend();
             }
+            if (Controller.isNeedStateOutput()) {
+                System.out.printf("(Sequence) %s BorrowReturnLibrarian sends " +
+                        "a message to BorrowReturnLibrarian\n", date);
+            }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号> from <服务部门>\n");
             System.out.printf("%s %s borrowed %s-%s-%s from %s\n",
                     date, person, school, type, id, this);
@@ -49,6 +53,10 @@ public class BorrowReturnLibrarian {
             books.add(book);
             if (Controller.isNeedStateOutput()) {
                 book.refuseLend();
+            }
+            if (Controller.isNeedStateOutput()) {
+                System.out.printf("(Sequence) %s BorrowReturnLibrarian sends " +
+                        "a message to BorrowReturnLibrarian\n", date);
             }
         }
     }

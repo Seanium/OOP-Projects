@@ -14,7 +14,7 @@ public class Controller {
     private static ArrayList<Book> outBooks = new ArrayList<>(); //校际借阅出借队列
     private static ArrayList<Book> returnBooks = new ArrayList<>(); //校际借阅归还队列
     private static String date;
-    private static boolean needStateOutput = false;
+    private static boolean needStateOutput = true;
 
     public static boolean isNeedStateOutput() {
         return needStateOutput;
@@ -170,6 +170,10 @@ public class Controller {
                     date, book.getSchool(), type, id, book.getOutPerson());
             if (Controller.isNeedStateOutput()) {
                 book.lend();
+            }
+            if (Controller.isNeedStateOutput()) {
+                System.out.printf("(Sequence) %s Controller sends " +
+                        "a message to Controller\n", date);
             }
             //System.out.printf("[YYYY-mm-dd] <学校名称>-<学号> borrowed <学校名称>-<类别号-序列号>
             // from <服务部门>\n");
