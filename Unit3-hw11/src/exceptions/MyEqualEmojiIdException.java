@@ -1,0 +1,20 @@
+package exceptions;
+
+import com.oocourse.spec3.exceptions.EqualEmojiIdException;
+
+public class MyEqualEmojiIdException extends EqualEmojiIdException {
+    private final int id;
+    private static ExceptionCounter exceptionCounter = new ExceptionCounter();
+
+    public MyEqualEmojiIdException(int id) {
+        this.id = id;
+        exceptionCounter.addTotalCount();
+        exceptionCounter.addIdCount(id);
+    }
+
+    @Override
+    public void print() {
+        System.out.println("eei-" + exceptionCounter.getTotalCount() +
+                ", " + id + "-" + exceptionCounter.getIdCount(id));
+    }
+}
